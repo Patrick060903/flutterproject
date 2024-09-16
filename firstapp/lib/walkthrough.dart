@@ -1,4 +1,7 @@
+import 'package:firstapp/login.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
+import 'signup.dart'; // Import the SignupPage
 
 class WalkthroughPage extends StatefulWidget {
   @override
@@ -6,8 +9,7 @@ class WalkthroughPage extends StatefulWidget {
 }
 
 class _WalkthroughPageState extends State<WalkthroughPage> {
-  final PageController _pageController =
-      PageController(viewportFraction: 0.75); // Space in between ng mga slides
+  final PageController _pageController = PageController(viewportFraction: 0.75);
   int _currentPage = 0;
 
   final List<String> _images = [
@@ -59,7 +61,6 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 20),
-              // Container ng pageview at indicators
               Expanded(
                 child: Column(
                   children: [
@@ -77,13 +78,11 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                             child: AnimatedContainer(
                               duration: Duration(milliseconds: 300),
                               curve: Curves.easeInOut,
-                              margin: EdgeInsets.symmetric(
-                                  horizontal: 16), // Adjust spacing
-                              width: 340, // Increased width
-                              height: 500, // Increased height
+                              margin: EdgeInsets.symmetric(horizontal: 16),
+                              width: 340,
+                              height: 500,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(
-                                    30), // Increased borderRadius
+                                borderRadius: BorderRadius.circular(30),
                                 border: Border.all(
                                   color: Color(0xFF0B553E),
                                   width: 4,
@@ -98,9 +97,7 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                         },
                       ),
                     ),
-                    SizedBox(
-                        height:
-                            10), // Space between kay slides at 'yung 3 buttons
+                    SizedBox(height: 10),
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Row(
@@ -122,18 +119,24 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 30), // Space sa taas ng buttons
+                    SizedBox(height: 30),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Column(
                         children: [
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              // Navigate to the SignupPage when the button is clicked
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SignupPage()),
+                              );
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Color(0xFF0B553E),
                               padding: EdgeInsets.symmetric(vertical: 6.0),
-                              minimumSize: Size(158,
-                                  40), // Pinakamababang size na pwede ilagay
+                              minimumSize: Size(158, 40),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(40.0),
                               ),
@@ -146,20 +149,26 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                              height: 6), // Space between kay signup at login
+                          SizedBox(height: 6),
                           SizedBox(
                             width: 158,
                             child: TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                // Navigate to the LoginPage when the button is clicked
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()),
+                                );
+                              },
                               style: TextButton.styleFrom(
                                 backgroundColor: Color(0xFFFFFFFF),
                                 padding: EdgeInsets.symmetric(vertical: 6.0),
                                 side: BorderSide(
                                   color: Color(0xFF0B553E),
-                                  width: 4, // Border thickness ni login button
+                                  width: 4,
                                 ),
-                                minimumSize: Size(158, 40), // Set size
+                                minimumSize: Size(158, 40),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(40.0),
                                 ),

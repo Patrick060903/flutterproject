@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'walkthrough.dart';
+import 'dashboard.dart'; // Import DashboardPage
 
 void main() {
   runApp(MyApp());

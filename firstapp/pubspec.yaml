@@ -64,7 +64,12 @@ flutter:
      - assets/image1.png
      - assets/image2.png
      - assets/image3.png
-
+     - assets/logo.png
+     - assets/home.png
+     - assets/inventory.png
+     - assets/grocery_list.png
+     - assets/meal_planner.png
+     - assets/profile_menu.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
