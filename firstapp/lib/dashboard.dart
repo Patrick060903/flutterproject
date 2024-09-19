@@ -5,21 +5,20 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // Remove default back button
-        backgroundColor: Colors.white, // Set background color to white
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.white,
         elevation: 0,
-        toolbarHeight: 70, // Adjust height as needed
+        toolbarHeight: 70,
         title: Row(
           children: [
-            // Logo
             Padding(
               padding: const EdgeInsets.only(right: 8.0),
               child: CircleAvatar(
                 backgroundColor: Colors.white,
-                radius: 20, // Adjust size as needed
+                radius: 20,
                 child: ClipOval(
                   child: Image.asset(
-                    'assets/logo.png', // Path to your circular logo image
+                    'assets/logo.png',
                     fit: BoxFit.cover,
                     width: 40,
                     height: 40,
@@ -27,14 +26,13 @@ class DashboardPage extends StatelessWidget {
                 ),
               ),
             ),
-            // Text
             Expanded(
               child: Text(
                 'OptiFood',
                 style: TextStyle(
-                  fontSize: 20, // Adjust size as needed
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0B553E), // Text color to match theme
+                  color: Color(0xFF0B553E),
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
@@ -42,137 +40,172 @@ class DashboardPage extends StatelessWidget {
           ],
         ),
         actions: [
-          // Notification Bell
           IconButton(
             icon: Icon(Icons.notifications, color: Color(0xFF0B553E)),
-            onPressed: () {
-              // Handle notification button press
-            },
+            onPressed: () {},
           ),
-          // Sidebar Icon
           Builder(
             builder: (BuildContext context) {
               return IconButton(
                 icon: Icon(Icons.menu, color: Color(0xFF0B553E)),
                 onPressed: () {
-                  // Open the sidebar
                   Scaffold.of(context).openEndDrawer();
                 },
               );
             },
           ),
-          SizedBox(width: 8), // Spacing between icons
+          SizedBox(width: 8),
         ],
       ),
       endDrawer: Drawer(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            // Grey area with profile image
-            Container(
-              color: Colors.grey[200], // Grey background
-              padding: EdgeInsets.fromLTRB(16.0, 32.0, 16.0,
-                  80.0), // Padding for top, left, right, bottom
-              width: double.infinity, // Full width of the drawer
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 60, // Increased size for profile image
-                    child: ClipOval(
-                      child: Image.asset(
-                        'assets/profile_menu.png', // Path to your profile menu image
-                        fit: BoxFit.cover,
-                        width: 80, // Increased width
-                        height: 80, // Increased height
+        child: Container(
+          color: Colors.grey[300],
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 16.0),
+                width: double.infinity,
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: Colors.white,
+                      radius: 40,
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/profile_menu.png',
+                          fit: BoxFit.cover,
+                          width: 80,
+                          height: 80,
+                        ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-            // Menu Text
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
-              child: Text(
-                'Menu', // Title text for the menu
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF0B553E), // Text color to match theme
+                    SizedBox(height: 16),
+                    Text(
+                      'Bornok',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF0B553E),
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      'Bornok Household',
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey[700],
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-            Expanded(
-              child: ListView(
-                padding: EdgeInsets.zero,
-                children: <Widget>[
-                  ListTile(
-                    title: Text('Home'),
-                    onTap: () {
-                      // Handle Home button click
-                      Navigator.pop(context); // Close the drawer
-                    },
+              SizedBox(height: 16),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  'Menu',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[700],
                   ),
-                  ListTile(
-                    title: Text('Inventory'),
-                    onTap: () {
-                      // Handle Inventory button click
-                      Navigator.pop(context); // Close the drawer
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Grocery Checklist'),
-                    onTap: () {
-                      // Handle Grocery Checklist button click
-                      Navigator.pop(context); // Close the drawer
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Meal Planner'),
-                    onTap: () {
-                      // Handle Meal Planner button click
-                      Navigator.pop(context); // Close the drawer
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Reports'),
-                    onTap: () {
-                      // Handle Reports button click
-                      Navigator.pop(context); // Close the drawer
-                    },
-                  ),
-                  ListTile(
-                    title: Text('Profile'),
-                    onTap: () {
-                      // Handle Profile button click
-                      Navigator.pop(context); // Close the drawer
-                    },
-                  ),
-                ],
+                ),
               ),
-            ),
-          ],
+              Expanded(
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    ListTile(
+                      leading: Icon(Icons.home, color: Colors.black),
+                      title: Text('Home'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.person, color: Colors.black),
+                      title: Text('Profile'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.notifications, color: Colors.black),
+                      title: Text('Notifications'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.bar_chart, color: Colors.black),
+                      title: Text('Reports'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.search, color: Colors.black),
+                      title: Text('Search'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    Divider(),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Text(
+                        'Settings and Support',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.settings, color: Colors.black),
+                      title: Text('Settings and Privacy'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.help, color: Colors.black),
+                      title: Text('Help Center'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    Divider(),
+                    ListTile(
+                      leading: Icon(Icons.logout, color: Colors.black),
+                      title: Text('Logout'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: Column(
         children: [
-          // Search Bar
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Container(
-              width: MediaQuery.of(context).size.width *
-                  0.75, // Adjust width to 75% of the screen width
+              width: MediaQuery.of(context).size.width * 0.85,
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.2),
                     spreadRadius: 2,
                     blurRadius: 5,
-                    offset: Offset(0, 3), // changes position of shadow
+                    offset: Offset(0, 3),
                   ),
                 ],
               ),
@@ -187,115 +220,114 @@ class DashboardPage extends StatelessWidget {
               ),
             ),
           ),
-          // Main Content
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      'Summary of results:',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[800],
+                      ),
+                    ),
+                    Spacer(),
+                    Text(
+                      'More',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 8),
+                Container(
+                  height: 150,
+                  width: double.infinity,
+                  color: Colors.white,
+                  child: Center(
+                    child: Text(
+                      '',
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
           Expanded(
             child: Center(
-              child: Text(
-                "", // No content here as requested
-              ),
+              child: Text(""),
             ),
           ),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
-        color: Colors.white, // White background for BottomAppBar
+        color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            // Home Button
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white, // White background for the button
-                borderRadius: BorderRadius.circular(10), // Rounded corners
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 1,
-                    blurRadius: 4,
-                    offset: Offset(0, 2), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: IconButton(
-                icon: Image.asset(
-                    'assets/home.png'), // Path to your home button image
-                iconSize: 30,
-                onPressed: () {
-                  // Handle home button press
-                },
-              ),
+            _bottomAppBarItem(
+              iconPath: 'assets/home.png',
+              label: 'Home',
+              context: context,
+              onTap: () {},
             ),
-            // Inventory Button
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white, // White background for the button
-                borderRadius: BorderRadius.circular(10), // Rounded corners
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 1,
-                    blurRadius: 4,
-                    offset: Offset(0, 2), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: IconButton(
-                icon: Image.asset(
-                    'assets/inventory.png'), // Path to your inventory button image
-                iconSize: 30,
-                onPressed: () {
-                  // Handle inventory button press
-                },
-              ),
+            _bottomAppBarItem(
+              iconPath: 'assets/inventory.png',
+              label: 'Inventory',
+              context: context,
+              onTap: () {},
             ),
-            // Grocery List Button
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white, // White background for the button
-                borderRadius: BorderRadius.circular(10), // Rounded corners
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 1,
-                    blurRadius: 4,
-                    offset: Offset(0, 2), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: IconButton(
-                icon: Image.asset(
-                    'assets/grocery_list.png'), // Path to your grocery list button image
-                iconSize: 30,
-                onPressed: () {
-                  // Handle grocery list button press
-                },
-              ),
+            _bottomAppBarItem(
+              iconPath: 'assets/grocery_list.png',
+              label: 'Grocery List',
+              context: context,
+              onTap: () {},
             ),
-            // Meal Planner Button
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white, // White background for the button
-                borderRadius: BorderRadius.circular(10), // Rounded corners
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 1,
-                    blurRadius: 4,
-                    offset: Offset(0, 2), // changes position of shadow
-                  ),
-                ],
-              ),
-              child: IconButton(
-                icon: Image.asset(
-                    'assets/meal_planner.png'), // Path to your meal planner button image
-                iconSize: 30,
-                onPressed: () {
-                  // Handle meal planner button press
-                },
-              ),
+            _bottomAppBarItem(
+              iconPath: 'assets/meal_planner.png',
+              label: 'Meal Planner',
+              context: context,
+              onTap: () {},
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _bottomAppBarItem({
+    required String iconPath,
+    required String label,
+    required BuildContext context,
+    required Function onTap,
+  }) {
+    return InkWell(
+      onTap: () => onTap(),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Image.asset(
+            iconPath,
+            width: 30,
+            height: 30,
+          ),
+          SizedBox(height: 4),
+          Text(
+            label,
+            style: TextStyle(fontSize: 12),
+          ),
+        ],
       ),
     );
   }
