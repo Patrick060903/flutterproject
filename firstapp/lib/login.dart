@@ -114,22 +114,18 @@ class LoginPage extends StatelessWidget {
                             text: "Don't have an account? ",
                             style: TextStyle(
                               fontSize: 14,
-                              color: Colors.grey[600], // Greyish color
+                              color: Colors.grey[600],
                             ),
                             children: [
                               TextSpan(
                                 text: "Signup",
                                 style: TextStyle(
                                   fontSize: 14,
-                                  color:
-                                      Colors.black, // Black color for "Signup"
-                                  fontWeight: FontWeight.bold, // Bolder font
-                                  decoration: TextDecoration
-                                      .underline, // Underline "Signup"
-                                  decorationColor:
-                                      Colors.black, // Color of underline
-                                  decorationThickness:
-                                      2.0, // Thickness of underline
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: TextDecoration.underline,
+                                  decorationColor: Colors.black,
+                                  decorationThickness: 2.0, //
                                 ),
                                 recognizer: TapGestureRecognizer()
                                   ..onTap = () {
@@ -177,40 +173,26 @@ class LoginPage extends StatelessWidget {
                             text: "Terms of Use",
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.grey[600], // Greyish color
-                              decoration: TextDecoration
-                                  .underline, // Underline "Terms of Use"
-                              decorationColor:
-                                  Colors.grey[600], // Color of underline
-                              decorationThickness:
-                                  2.0, // Thickness of underline
+                              color: Colors.grey[600],
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.grey[600],
+                              decorationThickness: 2.0,
                             ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                // Handle tap on "Terms of Use"
-                              },
+                            recognizer: TapGestureRecognizer()..onTap = () {},
                           ),
                         ),
-                        SizedBox(
-                            width:
-                                4), // Space between "Terms of Use" and "Privacy Policy"
+                        SizedBox(width: 4),
                         RichText(
                           text: TextSpan(
                             text: "Privacy Policy",
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.grey[600], // Greyish color
-                              decoration: TextDecoration
-                                  .underline, // Underline "Privacy Policy"
-                              decorationColor:
-                                  Colors.grey[600], // Color of underline
-                              decorationThickness:
-                                  2.0, // Thickness of underline
+                              color: Colors.grey[600],
+                              decoration: TextDecoration.underline,
+                              decorationColor: Colors.grey[600],
+                              decorationThickness: 2.0,
                             ),
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () {
-                                // Handle tap on "Privacy Policy"
-                              },
+                            recognizer: TapGestureRecognizer()..onTap = () {},
                           ),
                         ),
                       ],

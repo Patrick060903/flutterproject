@@ -9,10 +9,7 @@ class SignupPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFFE0F2F1),
-              Colors.white
-            ], // Gradient from green to white
+            colors: [Color(0xFFE0F2F1), Colors.white],
             begin: Alignment.bottomCenter,
             end: Alignment.topCenter,
           ),
@@ -22,7 +19,6 @@ class SignupPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Back button at the top
                 Padding(
                   padding: const EdgeInsets.only(left: 2.0, top: 2.0),
                   child: IconButton(
@@ -66,8 +62,7 @@ class SignupPage extends StatelessWidget {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.symmetric(
-                              vertical: 8.0,
-                              horizontal: 12.0), // Adjusted padding
+                              vertical: 8.0, horizontal: 12.0),
                           hintText: 'Enter your name',
                         ),
                       ),
@@ -133,11 +128,10 @@ class SignupPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 20),
-                      // Already have an account? Login
+
                       Center(
                         child: TextButton(
                           onPressed: () {
-                            // Navigate to LoginPage when "Login" is clicked
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -150,26 +144,21 @@ class SignupPage extends StatelessWidget {
                               text: "Already have an account? ",
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.grey[600], // Greyish color
+                                color: Colors.grey[600],
                               ),
                               children: [
                                 TextSpan(
                                   text: "Login",
                                   style: TextStyle(
                                     fontSize: 14,
-                                    color:
-                                        Colors.black, // Black color for "Login"
-                                    fontWeight: FontWeight.bold, // Bolder font
-                                    decoration: TextDecoration
-                                        .underline, // Underline "Login"
-                                    decorationColor:
-                                        Colors.black, // Color of underline
-                                    decorationThickness:
-                                        2.0, // Thickness of underline
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    decoration: TextDecoration.underline,
+                                    decorationColor: Colors.black,
+                                    decorationThickness: 2.0,
                                   ),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
-                                      // Navigate to LoginPage when "Login" is clicked
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
@@ -187,7 +176,6 @@ class SignupPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 160),
-                // By continuing, you agree to OptiFood's Terms of Use and Privacy Policy
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
@@ -196,11 +184,11 @@ class SignupPage extends StatelessWidget {
                         "By continuing, you agree to OptiFood's",
                         style: TextStyle(
                           fontSize: 12,
-                          color: Colors.grey[600], // Greyish color
+                          color: Colors.grey[600],
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 4), // Space between lines
+                      SizedBox(height: 4),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -209,50 +197,34 @@ class SignupPage extends StatelessWidget {
                               text: "Terms of Use",
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.grey[600], // Greyish color
-                                decoration: TextDecoration
-                                    .underline, // Underline "Terms of Use"
-                                decorationColor:
-                                    Colors.grey[600], // Color of underline
-                                decorationThickness:
-                                    2.0, // Thickness of underline
+                                color: Colors.grey[600],
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.grey[600],
+                                decorationThickness: 2.0,
                               ),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  // Handle tap on "Terms of Use"
-                                },
+                              recognizer: TapGestureRecognizer()..onTap = () {},
                             ),
                           ),
-                          SizedBox(
-                              width:
-                                  4), // Space between "Terms of Use" and "and"
+                          SizedBox(width: 4),
                           Text(
                             "and",
                             style: TextStyle(
                               fontSize: 12,
-                              color: Colors.grey[600], // Greyish color
+                              color: Colors.grey[600],
                             ),
                           ),
-                          SizedBox(
-                              width:
-                                  4), // Space between "and" and "Privacy Policy"
+                          SizedBox(width: 4),
                           RichText(
                             text: TextSpan(
                               text: "Privacy Policy",
                               style: TextStyle(
                                 fontSize: 12,
-                                color: Colors.grey[600], // Greyish color
-                                decoration: TextDecoration
-                                    .underline, // Underline "Privacy Policy"
-                                decorationColor:
-                                    Colors.grey[600], // Color of underline
-                                decorationThickness:
-                                    2.0, // Thickness of underline
+                                color: Colors.grey[600],
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.grey[600],
+                                decorationThickness: 2.0,
                               ),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {
-                                  // Handle tap on "Privacy Policy"
-                                },
+                              recognizer: TapGestureRecognizer()..onTap = () {},
                             ),
                           ),
                         ],

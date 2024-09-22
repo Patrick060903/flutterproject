@@ -48,7 +48,7 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
             Expanded(
               child: Text(
-                'Danjo Bakes', // Title of the App
+                'Stephen Bakes', // Title of the App
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -121,7 +121,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             'Summary', // Summary title
                             style: TextStyle(
                               fontSize: 20,
-                              color: Colors.green[800], // Summary title color
+                              color: Color(0xFF0B553E), // Summary title color
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -129,7 +129,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           Text(
                             'More', // More options text
                             style: TextStyle(
-                              color: Colors.green,
+                              color: Color(0xFF0B553E),
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
@@ -159,7 +159,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           Text(
                             'Expiring Soon', // Title for expiring soon items
                             style: TextStyle(
-                              color: Colors.green,
+                              color: Color(0xFF0B553E),
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                             ),
@@ -259,7 +259,7 @@ class _DashboardPageState extends State<DashboardPage> {
                       child: Text(
                         'See more...', // Text for the button
                         style: TextStyle(
-                          color: Colors.green,
+                          color: Color(0xFF0B553E),
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
                         ),
