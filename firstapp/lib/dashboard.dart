@@ -7,23 +7,20 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
-  // State variable to track if the notification drawer is open or closed
   bool _isDrawerOpen = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:
-          Colors.grey[200], // Set the background color of the dashboard
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        automaticallyImplyLeading: false, // Disable back button
-        backgroundColor: Colors.white, // Set AppBar background color to white
-        elevation: 0, // Remove shadow
-        toolbarHeight: 70, // Set height of the AppBar
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        toolbarHeight: 70,
         title: Row(
           children: [
             GestureDetector(
-              // Navigate to ProfilePage when logo is tapped
               onTap: () {
                 Navigator.push(
                   context,
@@ -37,7 +34,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   radius: 20,
                   child: ClipOval(
                     child: Image.asset(
-                      'assets/logo.png', // Logo image
+                      'assets/logo.png',
                       fit: BoxFit.cover,
                       width: 40,
                       height: 40,
@@ -48,25 +45,23 @@ class _DashboardPageState extends State<DashboardPage> {
             ),
             Expanded(
               child: Text(
-                'Stephen Bakes', // Title of the App
+                'Stephen Bakes',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF0B553E), // Title color
+                  color: Color(0xFF0B553E),
                 ),
-                overflow: TextOverflow.ellipsis, // Handle overflow
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ],
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications,
-                color: Color(0xFF0B553E)), // Notification icon
+            icon: Icon(Icons.notifications, color: Color(0xFF0B553E)),
             onPressed: () {
               setState(() {
-                _isDrawerOpen =
-                    !_isDrawerOpen; // Toggle the notification drawer
+                _isDrawerOpen = !_isDrawerOpen;
               });
             },
           ),
@@ -78,37 +73,32 @@ class _DashboardPageState extends State<DashboardPage> {
           SingleChildScrollView(
             child: Column(
               children: [
-                // Search bar
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Container(
-                    width: MediaQuery.of(context).size.width *
-                        0.85, // Set width of the search bar
+                    width: MediaQuery.of(context).size.width * 0.85,
                     decoration: BoxDecoration(
-                      color: Colors.white, // Background color of the search bar
+                      color: Colors.white,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.2), // Shadow color
-                          spreadRadius: 2, // Spread radius of the shadow
-                          blurRadius: 5, // Blur radius of the shadow
-                          offset: Offset(0, 3), // Offset of the shadow
+                          color: Colors.grey.withOpacity(0.2),
+                          spreadRadius: 2,
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
                         ),
                       ],
                     ),
                     child: TextField(
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.search,
-                            color: Colors.grey), // Search icon
-                        hintText: 'Search...', // Placeholder text
-                        border: InputBorder.none, // No border
+                        prefixIcon: Icon(Icons.search, color: Colors.grey),
+                        hintText: 'Search...',
+                        border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(
-                            vertical: 12.0,
-                            horizontal: 20.0), // Padding inside the TextField
+                            vertical: 12.0, horizontal: 20.0),
                       ),
                     ),
                   ),
                 ),
-                // Summary section
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 16.0, vertical: 8.0),
@@ -118,16 +108,16 @@ class _DashboardPageState extends State<DashboardPage> {
                       Row(
                         children: [
                           Text(
-                            'Summary', // Summary title
+                            'Summary',
                             style: TextStyle(
                               fontSize: 20,
-                              color: Color(0xFF0B553E), // Summary title color
+                              color: Color(0xFF0B553E),
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Spacer(),
                           Text(
-                            'More', // More options text
+                            'More',
                             style: TextStyle(
                               color: Color(0xFF0B553E),
                               fontSize: 16,
@@ -141,13 +131,12 @@ class _DashboardPageState extends State<DashboardPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                            height: 130, // Height of the summary box
+                            height: 130,
                             width: double.infinity,
-                            color: Colors
-                                .white, // Background color of the summary box
+                            color: Colors.white,
                             child: Center(
                               child: Text(
-                                'Wala pa', // Placeholder text
+                                'Wala pa',
                                 style: TextStyle(
                                   color: Colors.grey,
                                   fontSize: 16,
@@ -157,7 +146,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           ),
                           SizedBox(height: 8),
                           Text(
-                            'Expiring Soon', // Title for expiring soon items
+                            'Expiring Soon',
                             style: TextStyle(
                               color: Color(0xFF0B553E),
                               fontSize: 20,
@@ -170,7 +159,6 @@ class _DashboardPageState extends State<DashboardPage> {
                   ),
                 ),
                 SizedBox(height: 20),
-                // Product list section
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
@@ -183,46 +171,40 @@ class _DashboardPageState extends State<DashboardPage> {
                             child: Container(
                               alignment: Alignment.center,
                               child: Text('Product',
-                                  style:
-                                      TextStyle(fontSize: 14)), // Column header
+                                  style: TextStyle(fontSize: 14)),
                             ),
                           ),
                           Expanded(
                             child: Container(
                               alignment: Alignment.center,
                               child: Text('Ano lagay dito',
-                                  style: TextStyle(
-                                      fontSize: 14)), // Placeholder text
+                                  style: TextStyle(fontSize: 14)),
                             ),
                           ),
                           Expanded(
                             child: Container(
                               alignment: Alignment.center,
                               child: Text('Quantity',
-                                  style:
-                                      TextStyle(fontSize: 14)), // Column header
+                                  style: TextStyle(fontSize: 14)),
                             ),
                           ),
                           Expanded(
                             child: Container(
                               alignment: Alignment.center,
                               child: Text('Eat By',
-                                  style:
-                                      TextStyle(fontSize: 14)), // Column header
+                                  style: TextStyle(fontSize: 14)),
                             ),
                           ),
                         ],
                       ),
                       SizedBox(height: 4),
-                      // List of products (dummy data)
                       ...List.generate(4, (index) {
                         return Container(
                           margin: EdgeInsets.only(bottom: 4),
                           decoration: BoxDecoration(
                             border: Border(
                               bottom: BorderSide(
-                                  color: Colors.grey.withOpacity(
-                                      0.5)), // Divider between products
+                                  color: Colors.grey.withOpacity(0.5)),
                             ),
                           ),
                           child: Row(
@@ -230,13 +212,11 @@ class _DashboardPageState extends State<DashboardPage> {
                             children: List.generate(4, (colIndex) {
                               return Expanded(
                                 child: Container(
-                                  height: 67, // Height of each product entry
-                                  color: Colors.white, // Background color
+                                  height: 67,
+                                  color: Colors.white,
                                   alignment: Alignment.center,
                                   child: Text('R${index + 1}C${colIndex + 1}',
-                                      style: TextStyle(
-                                          fontSize:
-                                              16)), // Placeholder text for product info
+                                      style: TextStyle(fontSize: 16)),
                                 ),
                               );
                             }),
@@ -247,17 +227,14 @@ class _DashboardPageState extends State<DashboardPage> {
                   ),
                 ),
                 SizedBox(height: 2),
-                // "See more" button at the bottom right
                 Padding(
                   padding: const EdgeInsets.only(right: 16.0, bottom: 16.0),
                   child: Align(
                     alignment: Alignment.bottomRight,
                     child: TextButton(
-                      onPressed: () {
-                        // Add navigation to more details
-                      },
+                      onPressed: () {},
                       child: Text(
-                        'See more...', // Text for the button
+                        'See more...',
                         style: TextStyle(
                           color: Color(0xFF0B553E),
                           fontSize: 14,
@@ -270,53 +247,48 @@ class _DashboardPageState extends State<DashboardPage> {
               ],
             ),
           ),
-          // Notification Drawer
-          if (_isDrawerOpen) // Show the drawer if it's open
+          if (_isDrawerOpen)
             GestureDetector(
               onTap: () {
                 setState(() {
-                  _isDrawerOpen =
-                      false; // Close the drawer when tapping outside
+                  _isDrawerOpen = false;
                 });
               },
               child: Container(
-                color: Colors.black54, // Semi-transparent background
+                color: Colors.black54,
               ),
             ),
           AnimatedPositioned(
-            duration:
-                Duration(milliseconds: 300), // Animation duration for sliding
-            right: _isDrawerOpen ? 0 : -300, // Slide in and out from the right
+            duration: Duration(milliseconds: 300),
+            right: _isDrawerOpen ? 0 : -300,
             top: 0,
             bottom: 0,
             child: Container(
-              width: 300, // Width of the notification drawer
-              color: Colors.white, // Background color of the drawer
+              width: 300,
+              color: Colors.white,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      'Notifications', // Title of the notifications section
+                      'Notifications',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  Divider(), // Divider line
+                  Divider(),
                   Expanded(
                     child: ListView(
-                      padding: EdgeInsets.all(
-                          8), // Padding for the notification list
+                      padding: EdgeInsets.all(8),
                       children: [
                         ListTile(title: Text('New message from Danjo Bakes!')),
                         ListTile(
                             title: Text('Reminder: Check your inventory.')),
                         ListTile(
                             title: Text('Don’t forget to plan your meals!')),
-                        // Add more notification items here
                       ],
                     ),
                   ),
@@ -326,7 +298,6 @@ class _DashboardPageState extends State<DashboardPage> {
           ),
         ],
       ),
-      // Bottom navigation bar
       bottomNavigationBar: BottomAppBar(
         color: Colors.white,
         child: Row(
@@ -334,27 +305,27 @@ class _DashboardPageState extends State<DashboardPage> {
           children: [
             _bottomAppBarItem(
               iconPath: 'assets/home.png',
-              label: 'Home', // Label for Home button
+              label: 'Home',
               context: context,
-              onTap: () {}, // Action for Home button
+              onTap: () {},
             ),
             _bottomAppBarItem(
               iconPath: 'assets/meal_planner.png',
-              label: 'Meal Plan', // Label for Meal Plan button
+              label: 'Meal Plan',
               context: context,
-              onTap: () {}, // Action for Meal Plan button
+              onTap: () {},
             ),
             _bottomAppBarItem(
               iconPath: 'assets/inventory.png',
-              label: 'Inventory', // Label for Inventory button
+              label: 'Inventory',
               context: context,
-              onTap: () {}, // Action for Inventory button
+              onTap: () {},
             ),
             _bottomAppBarItem(
               iconPath: 'assets/grocery_list.png',
-              label: 'Grocery Checklist', // Label for Grocery Checklist button
+              label: 'Grocery Checklist',
               context: context,
-              onTap: () {}, // Action for Grocery Checklist button
+              onTap: () {},
             ),
           ],
         ),
@@ -362,7 +333,6 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  // Function to create bottom navigation items
   Widget _bottomAppBarItem({
     required String iconPath,
     required String label,
@@ -370,18 +340,18 @@ class _DashboardPageState extends State<DashboardPage> {
     required Function onTap,
   }) {
     return InkWell(
-      onTap: () => onTap(), // Execute the onTap action
+      onTap: () => onTap(),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Image.asset(
             iconPath,
             width: 27,
-            height: 27, // Size of the icon
+            height: 27,
           ),
           SizedBox(height: 3),
           Text(
-            label, // Text label for the icon
+            label,
             style: TextStyle(fontSize: 12),
           ),
         ],
