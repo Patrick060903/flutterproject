@@ -3,11 +3,13 @@ import 'package:flutter/gestures.dart';
 import 'login.dart'; // Import the LoginPage
 
 class SignupPage extends StatelessWidget {
+  const SignupPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFFE0F2F1), Colors.white],
             begin: Alignment.bottomCenter,
@@ -22,7 +24,7 @@ class SignupPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 2.0, top: 2.0),
                   child: IconButton(
-                    icon: Icon(Icons.arrow_back),
+                    icon: const Icon(Icons.arrow_back),
                     onPressed: () {
                       Navigator.pop(context);
                     },
@@ -33,7 +35,7 @@ class SignupPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Hi,\nSign Up!",
                         style: TextStyle(
                           fontSize: 32,
@@ -41,24 +43,24 @@ class SignupPage extends StatelessWidget {
                           color: Color(0xFF0B553E),
                         ),
                       ),
-                      SizedBox(height: 8),
-                      Text(
+                      const SizedBox(height: 8),
+                      const Text(
                         "Join OptiFood now. It's free.",
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.black,
                         ),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       // Name Field
-                      Text(
+                      const Text(
                         "Name:",
                         style: TextStyle(
                           fontSize: 16,
                           color: Color(0xFF0B553E),
                         ),
                       ),
-                      TextField(
+                      const TextField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.symmetric(
@@ -66,16 +68,16 @@ class SignupPage extends StatelessWidget {
                           hintText: 'Enter your name',
                         ),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       // Email Field
-                      Text(
+                      const Text(
                         "Email:",
                         style: TextStyle(
                           fontSize: 16,
                           color: Color(0xFF0B553E),
                         ),
                       ),
-                      TextField(
+                      const TextField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           contentPadding: EdgeInsets.symmetric(
@@ -84,16 +86,16 @@ class SignupPage extends StatelessWidget {
                           hintText: 'Enter your email',
                         ),
                       ),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       // Password Field
-                      Text(
+                      const Text(
                         "Password:",
                         style: TextStyle(
                           fontSize: 16,
                           color: Color(0xFF0B553E),
                         ),
                       ),
-                      TextField(
+                      const TextField(
                         obscureText: true,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -103,7 +105,7 @@ class SignupPage extends StatelessWidget {
                           hintText: 'Enter your password',
                         ),
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       // Signup Button
                       Center(
                         child: ElevatedButton(
@@ -111,14 +113,14 @@ class SignupPage extends StatelessWidget {
                             // Handle signup action
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF0B553E),
-                            padding: EdgeInsets.symmetric(
+                            backgroundColor: const Color(0xFF0B553E),
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: 160, vertical: 12),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          child: Text(
+                          child: const Text(
                             'Sign Up',
                             style: TextStyle(
                               color: Colors.white,
@@ -127,7 +129,7 @@ class SignupPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
 
                       Center(
                         child: TextButton(
@@ -149,7 +151,7 @@ class SignupPage extends StatelessWidget {
                               children: [
                                 TextSpan(
                                   text: "Login",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 14,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold,
@@ -175,7 +177,7 @@ class SignupPage extends StatelessWidget {
                     ],
                   ),
                 ),
-                SizedBox(height: 160),
+                const SizedBox(height: 160),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
@@ -188,7 +190,7 @@ class SignupPage extends StatelessWidget {
                         ),
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 4),
+                      const SizedBox(height: 4),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -205,7 +207,7 @@ class SignupPage extends StatelessWidget {
                               recognizer: TapGestureRecognizer()..onTap = () {},
                             ),
                           ),
-                          SizedBox(width: 4),
+                          const SizedBox(width: 4),
                           Text(
                             "and",
                             style: TextStyle(
@@ -213,7 +215,7 @@ class SignupPage extends StatelessWidget {
                               color: Colors.grey[600],
                             ),
                           ),
-                          SizedBox(width: 4),
+                          const SizedBox(width: 4),
                           RichText(
                             text: TextSpan(
                               text: "Privacy Policy",

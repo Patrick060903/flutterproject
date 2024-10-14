@@ -1,12 +1,18 @@
-import 'package:firstapp/ProfilePage.dart';
+import 'package:firstapp/grocerylistpage.dart';
+import 'package:firstapp/inventorypage.dart';
+import 'package:firstapp/login.dart';
+import 'package:firstapp/mealplannerpage.dart';
 import 'package:flutter/material.dart';
+import 'notifications.dart'; // Make sure to import the NotificationsPage
 
 class DashboardPage extends StatefulWidget {
+  const DashboardPage({super.key});
+
   @override
-  _DashboardPageState createState() => _DashboardPageState();
+  _DashboardPage createState() => _DashboardPage();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _DashboardPage extends State<DashboardPage> {
   bool _isDrawerOpen = false;
 
   @override
@@ -22,10 +28,9 @@ class _DashboardPageState extends State<DashboardPage> {
           children: [
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()),
-                );
+                setState(() {
+                  _isDrawerOpen = !_isDrawerOpen; // Toggle profile drawer
+                });
               },
               child: Padding(
                 padding: const EdgeInsets.only(right: 8.0),
@@ -43,9 +48,9 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
               ),
             ),
-            Expanded(
+            const Expanded(
               child: Text(
-                'Stephen Bakes',
+                'Dan Joseph Bonao',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -58,194 +63,190 @@ class _DashboardPageState extends State<DashboardPage> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications, color: Color(0xFF0B553E)),
+            icon: const Icon(Icons.notifications, color: Color(0xFF0B553E)),
             onPressed: () {
-              setState(() {
-                _isDrawerOpen = !_isDrawerOpen;
-              });
+              // Navigate to the NotificationsPage
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationsPage()),
+              );
             },
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
         ],
       ),
       body: Stack(
         children: [
-          SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.85,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
-                          spreadRadius: 2,
-                          blurRadius: 5,
-                          offset: Offset(0, 3),
+          ListView(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.85,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.2),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
+                      ),
+                    ],
+                  ),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.search, color: Colors.grey),
+                      hintText: 'Search...',
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(
+                          vertical: 12.0, horizontal: 20.0),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Row(
+                      children: [
+                        Text(
+                          'Summary',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color(0xFF0B553E),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Spacer(),
+                        Text(
+                          'More',
+                          style: TextStyle(
+                            color: Color(0xFF0B553E),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.search, color: Colors.grey),
-                        hintText: 'Search...',
-                        border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(
-                            vertical: 12.0, horizontal: 20.0),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 16.0, vertical: 8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Text(
-                            'Summary',
-                            style: TextStyle(
-                              fontSize: 20,
-                              color: Color(0xFF0B553E),
-                              fontWeight: FontWeight.bold,
-                            ),
+                    const SizedBox(height: 8),
+                    Container(
+                      height: 130,
+                      width: double.infinity,
+                      color: Colors.white,
+                      child: const Center(
+                        child: Text(
+                          'Wala pa',
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 16,
                           ),
-                          Spacer(),
-                          Text(
-                            'More',
-                            style: TextStyle(
-                              color: Color(0xFF0B553E),
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 8),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            height: 130,
-                            width: double.infinity,
-                            color: Colors.white,
-                            child: Center(
-                              child: Text(
-                                'Wala pa',
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 16,
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 8),
-                          Text(
-                            'Expiring Soon',
-                            style: TextStyle(
-                              color: Color(0xFF0B553E),
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: Text('Product',
-                                  style: TextStyle(fontSize: 14)),
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: Text('Ano lagay dito',
-                                  style: TextStyle(fontSize: 14)),
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: Text('Quantity',
-                                  style: TextStyle(fontSize: 14)),
-                            ),
-                          ),
-                          Expanded(
-                            child: Container(
-                              alignment: Alignment.center,
-                              child: Text('Eat By',
-                                  style: TextStyle(fontSize: 14)),
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 4),
-                      ...List.generate(4, (index) {
-                        return Container(
-                          margin: EdgeInsets.only(bottom: 4),
-                          decoration: BoxDecoration(
-                            border: Border(
-                              bottom: BorderSide(
-                                  color: Colors.grey.withOpacity(0.5)),
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: List.generate(4, (colIndex) {
-                              return Expanded(
-                                child: Container(
-                                  height: 67,
-                                  color: Colors.white,
-                                  alignment: Alignment.center,
-                                  child: Text('R${index + 1}C${colIndex + 1}',
-                                      style: TextStyle(fontSize: 16)),
-                                ),
-                              );
-                            }),
-                          ),
-                        );
-                      }),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 2),
-                Padding(
-                  padding: const EdgeInsets.only(right: 16.0, bottom: 16.0),
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'See more...',
-                        style: TextStyle(
-                          color: Color(0xFF0B553E),
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
+                    const SizedBox(height: 8),
+                    const Text(
+                      'Expiring Soon',
+                      style: TextStyle(
+                        color: Color(0xFF0B553E),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: const Text('Product',
+                                style: TextStyle(fontSize: 14)),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: const Text('Ano lagay dito',
+                                style: TextStyle(fontSize: 14)),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: const Text('Quantity',
+                                style: TextStyle(fontSize: 14)),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: const Text('Eat By',
+                                style: TextStyle(fontSize: 14)),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 4),
+                    ...List.generate(4, (index) {
+                      return Container(
+                        margin: const EdgeInsets.only(bottom: 4),
+                        decoration: BoxDecoration(
+                          border: Border(
+                            bottom:
+                                BorderSide(color: Colors.grey.withOpacity(0.5)),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: List.generate(4, (colIndex) {
+                            return Expanded(
+                              child: Container(
+                                height: 67,
+                                color: Colors.white,
+                                alignment: Alignment.center,
+                                child: Text('R${index + 1}C${colIndex + 1}',
+                                    style: const TextStyle(fontSize: 16)),
+                              ),
+                            );
+                          }),
+                        ),
+                      );
+                    }),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 2),
+              Padding(
+                padding: const EdgeInsets.only(right: 16.0, bottom: 16.0),
+                child: Align(
+                  alignment: Alignment.bottomRight,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'See more...',
+                      style: TextStyle(
+                        color: Color(0xFF0B553E),
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           if (_isDrawerOpen)
             GestureDetector(
@@ -259,36 +260,132 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
             ),
           AnimatedPositioned(
-            duration: Duration(milliseconds: 300),
-            right: _isDrawerOpen ? 0 : -300,
+            duration: const Duration(milliseconds: 300),
+            left: _isDrawerOpen ? 0 : -300,
             top: 0,
-            bottom: 0,
+            height: MediaQuery.of(context).size.height, // Cover full height
             child: Container(
               width: 300,
               color: Colors.white,
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      'Notifications',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                  const SizedBox(height: 16),
+                  CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 40,
+                    child: ClipOval(
+                      child: Image.asset(
+                        'assets/profile_menu.png',
+                        fit: BoxFit.cover,
+                        width: 80,
+                        height: 80,
                       ),
                     ),
                   ),
-                  Divider(),
-                  Expanded(
-                    child: ListView(
-                      padding: EdgeInsets.all(8),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'Dan Joseph',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF0B553E),
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Stephen Bakes',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey[700],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  const Divider(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ListTile(title: Text('New message from Danjo Bakes!')),
+                        const Text(
+                          'Menu',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF0B553E),
+                          ),
+                        ),
+                        const SizedBox(height: 8),
                         ListTile(
-                            title: Text('Reminder: Check your inventory.')),
+                          leading: const Icon(Icons.home),
+                          title: const Text('Home'),
+                          onTap: () {
+                            // Refresh DashboardPage
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DashboardPage()),
+                            );
+                          },
+                        ),
                         ListTile(
-                            title: Text('Don’t forget to plan your meals!')),
+                          leading: const Icon(Icons.notifications),
+                          title: const Text('Notifications'),
+                          onTap: () {
+                            // Navigate to the NotificationsPage
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NotificationsPage()),
+                            );
+                          },
+                        ),
+                        ListTile(
+                          leading: const Icon(Icons.report),
+                          title: const Text('Reports'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          leading: const Icon(Icons.search),
+                          title: const Text('Search'),
+                          onTap: () {},
+                        ),
+                        const Divider(),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 8.0),
+                          child: Text(
+                            'Settings and Support',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF0B553E),
+                            ),
+                          ),
+                        ),
+                        ListTile(
+                          leading: const Icon(Icons.settings),
+                          title: const Text('Settings'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          leading: const Icon(Icons.help),
+                          title: const Text('Help Center'),
+                          onTap: () {},
+                        ),
+                        ListTile(
+                          leading: const Icon(Icons.logout),
+                          title: const Text('Logout'),
+                          onTap: () {
+                            // Navigate to the LoginPage
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      LoginPage()), // Adjusted to navigate to LoginPage
+                            );
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -301,60 +398,77 @@ class _DashboardPageState extends State<DashboardPage> {
       bottomNavigationBar: BottomAppBar(
         color: Colors.white,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            _bottomAppBarItem(
-              iconPath: 'assets/home.png',
-              label: 'Home',
-              context: context,
-              onTap: () {},
+            GestureDetector(
+              onTap: () {
+                // Refresh DashboardPage for Home
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => DashboardPage()),
+                );
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset('assets/home.png', height: 24), // Your image path
+                  const Text('Home', style: TextStyle(fontSize: 12)),
+                ],
+              ),
             ),
-            _bottomAppBarItem(
-              iconPath: 'assets/meal_planner.png',
-              label: 'Meal Plan',
-              context: context,
-              onTap: () {},
+            GestureDetector(
+              onTap: () {
+                // Navigate to Inventory Page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => InventoryPage()),
+                );
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset('assets/inventory.png',
+                      height: 24), // Placeholder
+                  const Text('Inventory', style: TextStyle(fontSize: 12)),
+                ],
+              ),
             ),
-            _bottomAppBarItem(
-              iconPath: 'assets/inventory.png',
-              label: 'Inventory',
-              context: context,
-              onTap: () {},
+            GestureDetector(
+              onTap: () {
+                // Navigate to Grocery List Page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => GroceryListPage()),
+                );
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset('assets/grocery_list.png',
+                      height: 24), // Placeholder
+                  const Text('Grocery List', style: TextStyle(fontSize: 12)),
+                ],
+              ),
             ),
-            _bottomAppBarItem(
-              iconPath: 'assets/grocery_list.png',
-              label: 'Grocery Checklist',
-              context: context,
-              onTap: () {},
+            GestureDetector(
+              onTap: () {
+                // Navigate to Meal Planner Page
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MealPlannerPage()),
+                );
+              },
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset('assets/meal_planner.png',
+                      height: 24), // Placeholder
+                  const Text('Meal Planner', style: TextStyle(fontSize: 12)),
+                ],
+              ),
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _bottomAppBarItem({
-    required String iconPath,
-    required String label,
-    required BuildContext context,
-    required Function onTap,
-  }) {
-    return InkWell(
-      onTap: () => onTap(),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Image.asset(
-            iconPath,
-            width: 27,
-            height: 27,
-          ),
-          SizedBox(height: 3),
-          Text(
-            label,
-            style: TextStyle(fontSize: 12),
-          ),
-        ],
       ),
     );
   }

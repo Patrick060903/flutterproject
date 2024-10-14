@@ -4,6 +4,8 @@ import 'dashboard.dart'; // Import DashboardPage
 import 'signup.dart'; // Import SignupPage
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +16,7 @@ class LoginPage extends StatelessWidget {
             children: [
               // Back button at the top
               IconButton(
-                icon: Icon(Icons.arrow_back),
+                icon: const Icon(Icons.arrow_back),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -24,7 +26,7 @@ class LoginPage extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Hello,\nWelcome Back!",
                       style: TextStyle(
                         fontSize: 32,
@@ -32,44 +34,44 @@ class LoginPage extends StatelessWidget {
                         color: Color(0xFF0B553E),
                       ),
                     ),
-                    SizedBox(height: 8),
-                    Text(
+                    const SizedBox(height: 8),
+                    const Text(
                       "Login to continue your journey with OptiFood.",
                       style: TextStyle(
                         fontSize: 16,
                         color: Colors.black,
                       ),
                     ),
-                    SizedBox(height: 20),
-                    Text(
+                    const SizedBox(height: 20),
+                    const Text(
                       "Email or Username:",
                       style: TextStyle(
                         fontSize: 16,
                         color: Color(0xFF0B553E),
                       ),
                     ),
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
                         hintText: 'Enter your email or username',
                       ),
                     ),
-                    SizedBox(height: 16),
-                    Text(
+                    const SizedBox(height: 16),
+                    const Text(
                       "Password:",
                       style: TextStyle(
                         fontSize: 16,
                         color: Color(0xFF0B553E),
                       ),
                     ),
-                    TextField(
+                    const TextField(
                       obscureText: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(),
-                        hintText: 'Enter your password',
+                        hintText: '6 characters or more',
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Center(
                       child: ElevatedButton(
                         onPressed: () {
@@ -81,14 +83,14 @@ class LoginPage extends StatelessWidget {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF0B553E),
-                          padding: EdgeInsets.symmetric(
+                          backgroundColor: const Color(0xFF0B553E),
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 167, vertical: 12),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Login',
                           style: TextStyle(
                             color: Colors.white,
@@ -97,7 +99,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Center(
                       child: TextButton(
                         onPressed: () {
@@ -119,7 +121,7 @@ class LoginPage extends StatelessWidget {
                             children: [
                               TextSpan(
                                 text: "Signup",
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 14,
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
@@ -146,7 +148,7 @@ class LoginPage extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                   height:
                       220), // Add space between the last item and bottom of the screen
               Padding(
@@ -164,7 +166,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(height: 4), // Space between lines
+                    const SizedBox(height: 4), // Space between lines
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -181,7 +183,7 @@ class LoginPage extends StatelessWidget {
                             recognizer: TapGestureRecognizer()..onTap = () {},
                           ),
                         ),
-                        SizedBox(width: 4),
+                        const SizedBox(width: 4),
                         RichText(
                           text: TextSpan(
                             text: "Privacy Policy",

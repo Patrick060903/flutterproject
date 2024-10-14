@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  intl: ^0.17.0 # Use the latest version
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -61,9 +63,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/image1.png
-     - assets/image2.png
-     - assets/image3.png
+     - assets/walk1.png
+     - assets/walk2.png
+     - assets/walk3.png
      - assets/logo.png
      - assets/home.png
      - assets/inventory.png

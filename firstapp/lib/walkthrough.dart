@@ -4,6 +4,8 @@ import 'package:flutter/gestures.dart';
 import 'signup.dart'; // Import the SignupPage
 
 class WalkthroughPage extends StatefulWidget {
+  const WalkthroughPage({super.key});
+
   @override
   _WalkthroughPageState createState() => _WalkthroughPageState();
 }
@@ -13,9 +15,9 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
   int _currentPage = 0;
 
   final List<String> _images = [
-    'assets/image1.png',
-    'assets/image2.png',
-    'assets/image3.png',
+    'assets/walk1.png',
+    'assets/walk2.png',
+    'assets/walk3.png',
   ];
 
   @override
@@ -27,8 +29,8 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              SizedBox(height: 20),
-              Text.rich(
+              const SizedBox(height: 20),
+              const Text.rich(
                 TextSpan(
                   children: [
                     TextSpan(
@@ -51,16 +53,8 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                 ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 10),
-              Text(
-                'Meal Repurposing Application',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Color(0xFF1F8265),
-                ),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(height: 20),
+              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               Expanded(
                 child: Column(
                   children: [
@@ -76,15 +70,16 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                         itemBuilder: (context, index) {
                           return Center(
                             child: AnimatedContainer(
-                              duration: Duration(milliseconds: 300),
+                              duration: const Duration(milliseconds: 300),
                               curve: Curves.easeInOut,
-                              margin: EdgeInsets.symmetric(horizontal: 16),
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 16),
                               width: 340,
                               height: 500,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30),
+                                borderRadius: BorderRadius.circular(35),
                                 border: Border.all(
-                                  color: Color(0xFF0B553E),
+                                  color: const Color(0xFF0B553E),
                                   width: 4,
                                 ),
                                 image: DecorationImage(
@@ -97,21 +92,21 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                         },
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Container(
-                      padding: EdgeInsets.symmetric(vertical: 10),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(
                           _images.length,
                           (index) => AnimatedContainer(
-                            duration: Duration(milliseconds: 300),
-                            margin: EdgeInsets.symmetric(horizontal: 4),
+                            duration: const Duration(milliseconds: 300),
+                            margin: const EdgeInsets.symmetric(horizontal: 4),
                             height: 12,
                             width: _currentPage == index ? 16 : 8,
                             decoration: BoxDecoration(
                               color: _currentPage == index
-                                  ? Colors.blueAccent
+                                  ? const Color(0xFF0B553E)
                                   : Colors.grey,
                               shape: BoxShape.circle,
                             ),
@@ -119,7 +114,7 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Column(
@@ -134,14 +129,15 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                               );
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF0B553E),
-                              padding: EdgeInsets.symmetric(vertical: 6.0),
-                              minimumSize: Size(158, 40),
+                              backgroundColor: const Color(0xFF0B553E),
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 6.0),
+                              minimumSize: const Size(158, 40),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(40.0),
                               ),
                             ),
-                            child: Text(
+                            child: const Text(
                               'Sign Up',
                               style: TextStyle(
                                 fontSize: 16,
@@ -149,7 +145,7 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 6),
+                          const SizedBox(height: 6),
                           SizedBox(
                             width: 158,
                             child: TextButton(
@@ -162,18 +158,19 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                                 );
                               },
                               style: TextButton.styleFrom(
-                                backgroundColor: Color(0xFFFFFFFF),
-                                padding: EdgeInsets.symmetric(vertical: 6.0),
-                                side: BorderSide(
+                                backgroundColor: const Color(0xFFFFFFFF),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 6.0),
+                                side: const BorderSide(
                                   color: Color(0xFF0B553E),
                                   width: 4,
                                 ),
-                                minimumSize: Size(158, 40),
+                                minimumSize: const Size(158, 40),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(40.0),
                                 ),
                               ),
-                              child: Text(
+                              child: const Text(
                                 'Login',
                                 style: TextStyle(
                                   fontSize: 16,
@@ -185,7 +182,7 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 60),
+                    const SizedBox(height: 60),
                   ],
                 ),
               ),
