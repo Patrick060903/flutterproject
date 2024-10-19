@@ -5,6 +5,8 @@ import 'package:firstapp/inventorypage.dart';
 import 'package:firstapp/mealplannerpage.dart';
 
 class GroceryListPage extends StatefulWidget {
+  const GroceryListPage({super.key});
+
   @override
   _GroceryListPageState createState() => _GroceryListPageState();
 }
@@ -17,7 +19,7 @@ class _GroceryListPageState extends State<GroceryListPage> {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Grocery Checklist',
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -26,12 +28,12 @@ class _GroceryListPageState extends State<GroceryListPage> {
         ),
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Color(0xFF0B553E),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.search, color: Color(0xFF0B553E)),
+            icon: const Icon(Icons.search, color: Color(0xFF0B553E)),
             onPressed: () {},
           ),
         ],
@@ -41,10 +43,10 @@ class _GroceryListPageState extends State<GroceryListPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20), // Adjusted spacing without search box
+            const SizedBox(height: 20),
             Expanded(
               child: groceryLists.isEmpty
-                  ? Center(
+                  ? const Center(
                       child: Text(
                         'No list to show',
                         style: TextStyle(
@@ -59,13 +61,13 @@ class _GroceryListPageState extends State<GroceryListPage> {
                         return Column(
                           children: [
                             Container(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                 vertical: 12,
                                 horizontal: 16,
                               ),
-                              margin: EdgeInsets.symmetric(vertical: 8),
+                              margin: const EdgeInsets.symmetric(vertical: 8),
                               decoration: BoxDecoration(
-                                color: Color(0xFF0B553E),
+                                color: const Color(0xFF0B553E),
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               child: Row(
@@ -74,7 +76,7 @@ class _GroceryListPageState extends State<GroceryListPage> {
                                 children: [
                                   Text(
                                     groceryLists[index]['name']!,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.white,
@@ -82,7 +84,7 @@ class _GroceryListPageState extends State<GroceryListPage> {
                                   ),
                                   Text(
                                     groceryLists[index]['date']!,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 16,
                                       color: Colors.white,
                                     ),
@@ -90,28 +92,25 @@ class _GroceryListPageState extends State<GroceryListPage> {
                                 ],
                               ),
                             ),
-                            // Empty box below the grocery list item
                             Container(
-                              height: 100, // Adjust the height as needed
-                              color: Colors
-                                  .white, // Optional color for the white background
+                              height: 100,
+                              color: Colors.white,
                               child: Column(
                                 children: [
                                   Container(
-                                    height: 30, // Height for the black line
-                                    color: Colors
-                                        .black, // Color for the black line
-                                    child: Row(
+                                    height: 30,
+                                    color: Colors.black,
+                                    child: const Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.symmetric(
+                                          padding: EdgeInsets.symmetric(
                                               horizontal: 8.0),
                                           child: Text(
-                                            '          Item', // Replace with your item name
+                                            '          Item',
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 13,
@@ -119,11 +118,9 @@ class _GroceryListPageState extends State<GroceryListPage> {
                                             ),
                                           ),
                                         ),
-                                        SizedBox(
-                                            width:
-                                                60), // Space between Item Name and Quantity
+                                        SizedBox(width: 60),
                                         Padding(
-                                          padding: const EdgeInsets.symmetric(
+                                          padding: EdgeInsets.symmetric(
                                               horizontal: 8.0),
                                           child: Text(
                                             'Quantity',
@@ -134,11 +131,9 @@ class _GroceryListPageState extends State<GroceryListPage> {
                                             ),
                                           ),
                                         ),
-                                        SizedBox(
-                                            width:
-                                                16), // Space between Quantity and Unit
+                                        SizedBox(width: 16),
                                         Padding(
-                                          padding: const EdgeInsets.symmetric(
+                                          padding: EdgeInsets.symmetric(
                                               horizontal: 8.0),
                                           child: Text(
                                             'Unit',
@@ -154,34 +149,26 @@ class _GroceryListPageState extends State<GroceryListPage> {
                                   ),
                                   Expanded(
                                     child: Container(
-                                      padding: EdgeInsets.all(
-                                          8.0), // Optional padding for the container
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          // Add Button with Text
                                           Row(
                                             children: [
                                               Container(
-                                                width:
-                                                    38, // Width of the add button
-                                                height:
-                                                    38, // Height of the add button
-                                                decoration: BoxDecoration(
-                                                  color: Color(
-                                                      0xFF0B553E), // Green background
-                                                  shape: BoxShape
-                                                      .circle, // Circular shape
+                                                width: 38,
+                                                height: 38,
+                                                decoration: const BoxDecoration(
+                                                  color: Color(0xFF0B553E),
+                                                  shape: BoxShape.circle,
                                                 ),
                                                 child: IconButton(
-                                                  icon: Icon(
-                                                    Icons.add, // Add icon
-                                                    color: Colors
-                                                        .white, // Icon color
+                                                  icon: const Icon(
+                                                    Icons.add,
+                                                    color: Colors.white,
                                                   ),
                                                   onPressed: () {
-                                                    // Navigate to GroceryListDetailPage
                                                     Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
@@ -197,76 +184,64 @@ class _GroceryListPageState extends State<GroceryListPage> {
                                                   },
                                                 ),
                                               ),
-                                              SizedBox(
-                                                  width:
-                                                      8), // Space between the button and text
-                                              Text(
-                                                'Add Ingredients', // Label text
+                                              const SizedBox(width: 8),
+                                              const Text(
+                                                'Add Ingredients',
                                                 style: TextStyle(
-                                                  fontSize:
-                                                      12, // Font size for the label
-                                                  color: Colors
-                                                      .green, // Text color
+                                                  fontSize: 12,
+                                                  color: Colors.green,
                                                 ),
                                               ),
                                             ],
                                           ),
-                                          // Edit and Delete Icons
                                           Row(
                                             children: [
                                               IconButton(
-                                                icon: Icon(
-                                                  Icons.edit, // Edit icon
-                                                  size:
-                                                      20, // Size of the edit icon
+                                                icon: const Icon(
+                                                  Icons.edit,
+                                                  size: 20,
                                                 ),
-                                                onPressed: () {
-                                                  // Add your edit button functionality here
-                                                },
+                                                onPressed: () {},
                                               ),
-                                              SizedBox(
-                                                  width:
-                                                      1), // Space between icons
+                                              const SizedBox(width: 1),
                                               IconButton(
-                                                icon: Icon(
-                                                  Icons.delete, // Delete icon
-                                                  size:
-                                                      20, // Size of the delete icon
+                                                icon: const Icon(
+                                                  Icons.delete,
+                                                  size: 20,
                                                 ),
                                                 onPressed: () {
-                                                  // Show a confirmation dialog before deletion
                                                   showDialog(
                                                     context: context,
                                                     builder:
                                                         (BuildContext context) {
                                                       return AlertDialog(
-                                                        title: Text(
+                                                        title: const Text(
                                                             'Confirm Deletion'),
-                                                        content: Text(
+                                                        content: const Text(
                                                             'Are you sure you want to delete this item?'),
                                                         actions: [
                                                           TextButton(
                                                             onPressed: () {
                                                               Navigator.of(
                                                                       context)
-                                                                  .pop(); // Close the dialog
+                                                                  .pop();
                                                             },
-                                                            child:
-                                                                Text('Cancel'),
+                                                            child: const Text(
+                                                                'Cancel'),
                                                           ),
                                                           TextButton(
                                                             onPressed: () {
                                                               setState(() {
                                                                 groceryLists
                                                                     .removeAt(
-                                                                        index); // Remove the item at the current index
+                                                                        index);
                                                               });
                                                               Navigator.of(
                                                                       context)
-                                                                  .pop(); // Close the dialog
+                                                                  .pop();
                                                             },
-                                                            child:
-                                                                Text('Delete'),
+                                                            child: const Text(
+                                                                'Delete'),
                                                           ),
                                                         ],
                                                       );
@@ -293,13 +268,14 @@ class _GroceryListPageState extends State<GroceryListPage> {
                 onPressed: () {
                   _showAddListDialog(context);
                 },
-                child: Text('Add a New List'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF0B553E),
+                  backgroundColor: const Color(0xFF0B553E),
                   foregroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                  textStyle: TextStyle(fontSize: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  textStyle: const TextStyle(fontSize: 16),
                 ),
+                child: Text('Add a New List'),
               ),
             ),
           ],
@@ -314,14 +290,15 @@ class _GroceryListPageState extends State<GroceryListPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => DashboardPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const DashboardPage()),
                 );
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/home.png', height: 24),
-                  Text('Home', style: TextStyle(fontSize: 12)),
+                  const Text('Home', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -336,7 +313,7 @@ class _GroceryListPageState extends State<GroceryListPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/inventory.png', height: 24),
-                  Text('Inventory', style: TextStyle(fontSize: 12)),
+                  const Text('Inventory', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -351,7 +328,7 @@ class _GroceryListPageState extends State<GroceryListPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/grocery_list.png', height: 24),
-                  Text('Grocery List', style: TextStyle(fontSize: 12)),
+                  const Text('Grocery List', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -359,14 +336,15 @@ class _GroceryListPageState extends State<GroceryListPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MealPlannerPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const MealPlannerPage()),
                 );
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/meal_planner.png', height: 24),
-                  Text('Meal Planner', style: TextStyle(fontSize: 12)),
+                  const Text('Meal Planner', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -391,41 +369,41 @@ class _GroceryListPageState extends State<GroceryListPage> {
           child: Container(
             width: 450,
             height: 400,
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                const Text(
                   'Add New List',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+                const Text(
                   'List Name',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 TextField(
                   controller: listNameController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     hintText: 'Name',
                     border: OutlineInputBorder(),
                   ),
                 ),
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+                const Text(
                   'Date',
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 TextField(
                   controller: dateController,
                   readOnly: true,
                   decoration: InputDecoration(
                     hintText: 'Select Date',
-                    border: OutlineInputBorder(),
+                    border: const OutlineInputBorder(),
                     suffixIcon: IconButton(
-                      icon: Icon(Icons.calendar_today),
+                      icon: const Icon(Icons.calendar_today),
                       onPressed: () async {
                         DateTime? pickedDate = await showDatePicker(
                           context: context,
@@ -444,7 +422,7 @@ class _GroceryListPageState extends State<GroceryListPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     if (listNameController.text.isNotEmpty) {
@@ -457,13 +435,14 @@ class _GroceryListPageState extends State<GroceryListPage> {
                       Navigator.of(context).pop();
                     }
                   },
-                  child: Text('Add list'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF0B553E),
+                    backgroundColor: const Color(0xFF0B553E),
                     foregroundColor: Colors.white,
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                    textStyle: TextStyle(fontSize: 16),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 15),
+                    textStyle: const TextStyle(fontSize: 16),
                   ),
+                  child: Text('Add list'),
                 ),
               ],
             ),
@@ -479,7 +458,7 @@ class _GroceryListPageState extends State<GroceryListPage> {
 class GroceryListDetailPage extends StatelessWidget {
   final String listName;
 
-  GroceryListDetailPage({required this.listName});
+  const GroceryListDetailPage({super.key, required this.listName});
 
   @override
   Widget build(BuildContext context) {
@@ -487,17 +466,17 @@ class GroceryListDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           '$listName Grocery Checklist',
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             color: Color(0xFF0B553E),
           ),
         ),
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Color(0xFF0B553E),
         ),
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'No items to show',
           style: TextStyle(
@@ -513,9 +492,9 @@ class GroceryListDetailPage extends StatelessWidget {
             MaterialPageRoute(builder: (context) => AddItemPage()),
           );
         },
+        backgroundColor: const Color(0xFF0B553E),
+        shape: const CircleBorder(),
         child: Icon(Icons.add, size: 32),
-        backgroundColor: Color(0xFF0B553E),
-        shape: CircleBorder(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       bottomNavigationBar: BottomAppBar(
@@ -527,14 +506,15 @@ class GroceryListDetailPage extends StatelessWidget {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => DashboardPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const DashboardPage()),
                 );
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/home.png', height: 24),
-                  Text('Home', style: TextStyle(fontSize: 12)),
+                  const Text('Home', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -549,7 +529,7 @@ class GroceryListDetailPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/inventory.png', height: 24),
-                  Text('Inventory', style: TextStyle(fontSize: 12)),
+                  const Text('Inventory', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -564,7 +544,7 @@ class GroceryListDetailPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/grocery_list.png', height: 24),
-                  Text('Grocery List', style: TextStyle(fontSize: 12)),
+                  const Text('Grocery List', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -572,14 +552,15 @@ class GroceryListDetailPage extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MealPlannerPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const MealPlannerPage()),
                 );
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/meal_planner.png', height: 24),
-                  Text('Meal Planner', style: TextStyle(fontSize: 12)),
+                  const Text('Meal Planner', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -593,6 +574,8 @@ class GroceryListDetailPage extends StatelessWidget {
 // New class for the Add Item Page
 
 class AddItemPage extends StatefulWidget {
+  const AddItemPage({super.key});
+
   @override
   _AddItemPageState createState() => _AddItemPageState();
 }
@@ -611,9 +594,9 @@ class _AddItemPageState extends State<AddItemPage> {
     'Item 6'
   ];
   String _searchQuery = '';
-  TextEditingController _expDateController = TextEditingController();
-  Map<String, int> _savedItems = {}; // Tracks saved items and their quantities
-  int _quantity = 1; // Default quantity
+  final TextEditingController _expDateController = TextEditingController();
+  final Map<String, int> _savedItems = {};
+  int _quantity = 1;
 
   @override
   void dispose() {
@@ -628,16 +611,16 @@ class _AddItemPageState extends State<AddItemPage> {
         title: Container(
           width: 260,
           alignment: Alignment.center,
-          child: Text(
+          child: const Text(
             'Add Items',
             style: TextStyle(
               color: Color(0xFF0B553E),
-              fontWeight: FontWeight.bold, // Make the text bold
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -649,8 +632,7 @@ class _AddItemPageState extends State<AddItemPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 1),
-              // Search and Manual buttons
+              const SizedBox(height: 1),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -659,7 +641,7 @@ class _AddItemPageState extends State<AddItemPage> {
                       _selectedOption = 'search';
                     });
                   }, _selectedOption == 'search'),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   _oblongButton('Manual', 150, 30, () {
                     setState(() {
                       _selectedOption = 'manual';
@@ -667,12 +649,11 @@ class _AddItemPageState extends State<AddItemPage> {
                   }, _selectedOption == 'manual'),
                 ],
               ),
-              SizedBox(height: 10),
-              // Build Content Based on Selection
+              const SizedBox(height: 10),
               _selectedOption == 'search'
                   ? _buildSearchContent()
                   : _buildManualContent(),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               _buildSaveButton(),
             ],
           ),
@@ -692,7 +673,7 @@ class _AddItemPageState extends State<AddItemPage> {
             borderRadius: BorderRadius.circular(height / 2),
           ),
           padding: EdgeInsets.zero,
-          backgroundColor: isSelected ? Color(0xFF0B553E) : Colors.white,
+          backgroundColor: isSelected ? const Color(0xFF0B553E) : Colors.white,
         ),
         onPressed: onPressed,
         child: Center(
@@ -700,7 +681,7 @@ class _AddItemPageState extends State<AddItemPage> {
             label,
             style: TextStyle(
               fontSize: 14,
-              color: isSelected ? Colors.white : Color(0xFF0B553E),
+              color: isSelected ? Colors.white : const Color(0xFF0B553E),
             ),
           ),
         ),
@@ -712,9 +693,9 @@ class _AddItemPageState extends State<AddItemPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          width: 390, // Set your desired width here
-          height: 45, // Set your desired height here
+        SizedBox(
+          width: 390,
+          height: 45,
           child: TextField(
             onChanged: (query) {
               setState(() {
@@ -726,16 +707,16 @@ class _AddItemPageState extends State<AddItemPage> {
                 borderRadius: BorderRadius.circular(30),
               ),
               hintText: 'Search for an item',
-              prefixIcon: Icon(Icons.search),
-              hintStyle: TextStyle(
+              prefixIcon: const Icon(Icons.search),
+              hintStyle: const TextStyle(
                 color: Colors.grey,
-                fontSize: 14, // Set your desired font size here
+                fontSize: 14,
               ),
             ),
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         _buildRectangleBoxes(),
       ],
     );
@@ -746,17 +727,17 @@ class _AddItemPageState extends State<AddItemPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildTextFieldLabel('Item Name'),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         _buildTextField('Enter item name'),
-        SizedBox(height: 10),
-        SizedBox(height: 1),
+        const SizedBox(height: 10),
+        const SizedBox(height: 1),
         _buildTextFieldLabel(
             'Quantity                              Weight/Volume Unit'),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         _buildQuantityControl(),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         _buildTextFieldLabel1('Category'),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
       ],
     );
   }
@@ -767,20 +748,20 @@ class _AddItemPageState extends State<AddItemPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: EdgeInsets.only(top: 20),
+          margin: const EdgeInsets.only(top: 20),
           child: Text(
             label,
-            style: TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16),
           ),
         ),
-        SizedBox(height: 8), // Space between label and dropdown
+        const SizedBox(height: 8),
         DropdownButtonFormField<String>(
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             border: OutlineInputBorder(),
             contentPadding: EdgeInsets.symmetric(horizontal: 10),
           ),
-          hint: Text('Select category'),
-          value: _selectedCategory, // The currently selected category
+          hint: const Text('Select category'),
+          value: _selectedCategory,
           items: <String>['vegetable', 'fruits', 'meat'].map((String value) {
             return DropdownMenuItem<String>(
               value: value,
@@ -789,7 +770,7 @@ class _AddItemPageState extends State<AddItemPage> {
           }).toList(),
           onChanged: (String? newValue) {
             setState(() {
-              _selectedCategory = newValue; // Update selected category
+              _selectedCategory = newValue;
             });
           },
         ),
@@ -798,11 +779,11 @@ class _AddItemPageState extends State<AddItemPage> {
   }
 
   Widget _buildTextField1(String hint) {
-    return Container(
+    return SizedBox(
       height: 70.0,
       child: TextField(
         decoration: InputDecoration(
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
           hintText: hint,
         ),
       ),
@@ -811,20 +792,20 @@ class _AddItemPageState extends State<AddItemPage> {
 
   Widget _buildTextFieldLabel(String label) {
     return Container(
-      margin: EdgeInsets.only(top: 20),
+      margin: const EdgeInsets.only(top: 20),
       child: Text(
         label,
-        style: TextStyle(fontSize: 16),
+        style: const TextStyle(fontSize: 16),
       ),
     );
   }
 
   Widget _buildTextField(String hint) {
-    return Container(
+    return SizedBox(
       height: 70.0,
       child: TextField(
         decoration: InputDecoration(
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
           hintText: hint,
         ),
       ),
@@ -833,19 +814,18 @@ class _AddItemPageState extends State<AddItemPage> {
 
   Widget _buildQuantityControl() {
     return Row(
-      mainAxisAlignment:
-          MainAxisAlignment.spaceBetween, // Align items with space between
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         // Minus button
         Container(
           width: 30,
           height: 30,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Color(0xFF008D23),
           ),
           child: IconButton(
-            icon: Icon(Icons.remove, color: Colors.white),
+            icon: const Icon(Icons.remove, color: Colors.white),
             padding: EdgeInsets.zero,
             onPressed: () {
               setState(() {
@@ -858,23 +838,22 @@ class _AddItemPageState extends State<AddItemPage> {
         ),
         // Quantity display
         Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: 1), // Adjust distance between minus and quantity
+          padding: const EdgeInsets.symmetric(horizontal: 1),
           child: Text(
             '$_quantity',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
         // Add button
         Container(
           width: 30,
           height: 30,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Color(0xFF008D23),
           ),
           child: IconButton(
-            icon: Icon(Icons.add, color: Colors.white),
+            icon: const Icon(Icons.add, color: Colors.white),
             padding: EdgeInsets.zero,
             onPressed: () {
               setState(() {
@@ -885,18 +864,17 @@ class _AddItemPageState extends State<AddItemPage> {
         ),
         // Weight/Volume Unit Dropdown
         Column(
-          crossAxisAlignment: CrossAxisAlignment.end, // Align items to the end
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            // Dropdown for unit selection
-            Container(
-              width: 200, // Set width of the dropdown
+            SizedBox(
+              width: 200,
               child: DropdownButtonFormField<String>(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(), // Add border to the dropdown
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
                   contentPadding: EdgeInsets.symmetric(horizontal: 10),
                 ),
-                hint: Text('Select unit'),
-                value: _selectedUnit, // The currently selected unit
+                hint: const Text('Select unit'),
+                value: _selectedUnit,
                 items: <String>['pieces', 'kg', 'grams'].map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -905,7 +883,7 @@ class _AddItemPageState extends State<AddItemPage> {
                 }).toList(),
                 onChanged: (String? newValue) {
                   setState(() {
-                    _selectedUnit = newValue; // Update selected unit
+                    _selectedUnit = newValue;
                   });
                 },
               ),
@@ -926,9 +904,9 @@ class _AddItemPageState extends State<AddItemPage> {
 
     if (filteredItems.isEmpty) {
       return Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: const EdgeInsets.only(top: 20),
         alignment: Alignment.center,
-        child: Text(
+        child: const Text(
           'No items found',
           style: TextStyle(fontSize: 16),
         ),
@@ -941,36 +919,31 @@ class _AddItemPageState extends State<AddItemPage> {
   }
 
   Widget _buildRectangleBox(String text) {
-    bool isSaved = _savedItems.containsKey(text); // Check if item is saved
+    bool isSaved = _savedItems.containsKey(text);
     return GestureDetector(
       onTap: () {
         setState(() {
           if (isSaved) {
-            // If already saved, remove it from saved items
             _savedItems.remove(text);
           } else {
-            // If not saved, show the edit quantity dialog
             _showEditQuantityDialog(text);
           }
         });
       },
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5),
+        margin: const EdgeInsets.symmetric(vertical: 5),
         height: 80,
         decoration: BoxDecoration(
-          color: isSaved
-              ? Colors.green[100]
-              : Colors.white, // Highlight saved item
-          border: Border.all(color: Color(0xFF0B553E)),
+          color: isSaved ? Colors.green[100] : Colors.white,
+          border: Border.all(color: const Color(0xFF0B553E)),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            _buildItemDetail(text), // Item Name
+            _buildItemDetail(text),
             _buildItemDetail('Storage'),
-            _buildItemDetail(
-                'Quantity: ${_savedItems[text] ?? 1}'), // Show saved quantity
+            _buildItemDetail('Quantity: ${_savedItems[text] ?? 1}'),
             _buildItemDetail('Expiry Date'),
           ],
         ),
@@ -981,7 +954,7 @@ class _AddItemPageState extends State<AddItemPage> {
   Widget _buildItemDetail(String text) {
     return Text(
       text,
-      style: TextStyle(fontSize: 14, color: Color(0xFF0B553E)),
+      style: const TextStyle(fontSize: 14, color: Color(0xFF0B553E)),
     );
   }
 
@@ -989,73 +962,61 @@ class _AddItemPageState extends State<AddItemPage> {
     return Center(
       child: ElevatedButton(
         onPressed: () {
-          // Show confirmation dialog
           showDialog(
             context: context,
             builder: (BuildContext context) {
               return AlertDialog(
-                contentPadding: EdgeInsets.symmetric(
-                    vertical: 20,
-                    horizontal:
-                        20), // Reduced vertical padding for a more compact dialog
-                content: Column(
-                  mainAxisSize: MainAxisSize
-                      .min, // Makes the dialog size based on its content
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                content: const Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       'Are you sure you want to add these ingredients to the grocery checklist?',
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 16), // Adjust text size
+                      style: TextStyle(fontSize: 16),
                     ),
                   ],
                 ),
-                actionsPadding: EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 10), // Adjusted padding to move buttons closer
+                actionsPadding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 actions: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      // No button with white background and green border
                       Container(
                         width: 120,
-                        height: 40, // Set the height of the container
+                        height: 40,
                         decoration: BoxDecoration(
-                          color: Colors.white, // White background
-                          border: Border.all(
-                              color: Color(0xFF008D23)), // Green border
-                          borderRadius:
-                              BorderRadius.circular(30), // More rounded corners
+                          color: Colors.white,
+                          border: Border.all(color: const Color(0xFF008D23)),
+                          borderRadius: BorderRadius.circular(30),
                         ),
                         child: TextButton(
                           onPressed: () {
-                            Navigator.of(context).pop(); // Close the dialog
+                            Navigator.of(context).pop();
                           },
-                          child: Text(
+                          child: const Text(
                             'No',
-                            style: TextStyle(
-                                color: Color(0xFF008D23)), // Green text
+                            style: TextStyle(color: Color(0xFF008D23)),
                           ),
                         ),
                       ),
-                      // Yes button with green background
                       Container(
                         width: 120,
-                        height: 40, // Set the height of the container
+                        height: 40,
                         decoration: BoxDecoration(
-                          color: Color(0xFF008D23), // Green background
-                          borderRadius:
-                              BorderRadius.circular(30), // More rounded corners
+                          color: const Color(0xFF008D23),
+                          borderRadius: BorderRadius.circular(30),
                         ),
                         child: TextButton(
                           onPressed: () {
-                            // Save all items logic if "Yes" is clicked
                             print("Saved items: $_savedItems");
-                            Navigator.of(context).pop(); // Close the dialog
+                            Navigator.of(context).pop();
                           },
-                          child: Text(
+                          child: const Text(
                             'Yes',
-                            style: TextStyle(color: Colors.white), // White text
+                            style: TextStyle(color: Colors.white),
                           ),
                         ),
                       ),
@@ -1067,10 +1028,10 @@ class _AddItemPageState extends State<AddItemPage> {
           );
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xFF0B553E),
-          padding: EdgeInsets.symmetric(vertical: 13, horizontal: 130),
+          backgroundColor: const Color(0xFF0B553E),
+          padding: const EdgeInsets.symmetric(vertical: 13, horizontal: 130),
         ),
-        child: Text(
+        child: const Text(
           'Save item',
           style: TextStyle(fontSize: 16, color: Colors.white),
         ),
@@ -1088,79 +1049,72 @@ class _AddItemPageState extends State<AddItemPage> {
 
     if (pickedDate != null) {
       setState(() {
-        _expDateController.text =
-            DateFormat('yyyy-MM-dd').format(pickedDate); // Format the date
+        _expDateController.text = DateFormat('yyyy-MM-dd').format(pickedDate);
       });
     }
   }
 
   void _showEditQuantityDialog(String itemName) {
-    // Variables to hold the new quantity, unit, and date
-    int newQuantity = _quantity; // Initialize with the current quantity
-    String newUnit = ''; // Variable to hold the weight/volume unit
-    TextEditingController _dateAddedController =
-        TextEditingController(); // Controller for Date Added
+    int newQuantity = _quantity;
+    String newUnit = '';
+    TextEditingController dateAddedController = TextEditingController();
 
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Center(child: Text('Edit Quantity')),
-          content: Container(
-            width: 400, // Set the desired width for the dialog
+          title: const Center(child: Text('Edit Quantity')),
+          content: SizedBox(
+            width: 400,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Quantity and Weight/Volume unit section
                 Row(
                   children: [
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Number:',
+                          const Text('Number:',
                               style: TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 8),
                           SizedBox(
-                              height: 8), // Space between label and textbox
-                          Container(
-                            height: 60, // Set the height for the textbox
+                            height: 60,
                             child: TextField(
                               keyboardType: TextInputType.number,
                               onChanged: (value) {
-                                newQuantity = int.tryParse(value) ??
-                                    1; // Parse the quantity
+                                newQuantity = int.tryParse(value) ?? 1;
                               },
                               decoration: InputDecoration(
-                                border: OutlineInputBorder(),
+                                border: const OutlineInputBorder(),
                                 hintText: newQuantity.toString(),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 10), // Padding inside textbox
+                                contentPadding:
+                                    const EdgeInsets.symmetric(vertical: 10),
                               ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(width: 5), // Space between two columns
+                    const SizedBox(width: 5),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Weight/Volume unit:',
+                          const Text('Weight/Volume unit:',
                               style: TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 8),
                           SizedBox(
-                              height: 8), // Space between label and textbox
-                          Container(
-                            height: 60, // Set the height for the textbox
+                            height: 60,
                             child: TextField(
                               onChanged: (value) {
-                                newUnit = value; // Capture the unit
+                                newUnit = value;
                               },
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
                                 hintText: 'e.g., kg, L',
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 10), // Padding inside textbox
+                                contentPadding:
+                                    EdgeInsets.symmetric(vertical: 10),
                               ),
                             ),
                           ),
@@ -1169,20 +1123,18 @@ class _AddItemPageState extends State<AddItemPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 20), // Space after the inputs
-                // Date Added section
+                const SizedBox(height: 20),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Date Added:',
+                    const Text('Date Added:',
                         style: TextStyle(fontWeight: FontWeight.bold)),
-                    SizedBox(height: 8), // Space between label and textbox
-                    Container(
+                    const SizedBox(height: 8),
+                    SizedBox(
                       height: 60.0,
                       child: TextField(
-                        controller: _dateAddedController,
-                        readOnly:
-                            true, // Make it read-only to use a date picker
+                        controller: dateAddedController,
+                        readOnly: true,
                         onTap: () async {
                           DateTime? pickedDate = await showDatePicker(
                             context: context,
@@ -1194,12 +1146,11 @@ class _AddItemPageState extends State<AddItemPage> {
                             String formattedDate =
                                 DateFormat('yyyy-MM-dd').format(pickedDate);
                             setState(() {
-                              _dateAddedController.text =
-                                  formattedDate; // Set the selected date
+                              dateAddedController.text = formattedDate;
                             });
                           }
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           hintText: 'Select date',
                           suffixIcon: Icon(Icons.calendar_today),
@@ -1209,29 +1160,25 @@ class _AddItemPageState extends State<AddItemPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 20), // Space before Save button
-                // Centralized Save button with adjustable width
+                const SizedBox(height: 20),
                 Center(
-                  child: Container(
-                    width: 150, // Set the width of the Save button
+                  child: SizedBox(
+                    width: 150,
                     child: TextButton(
                       style: TextButton.styleFrom(
-                        backgroundColor:
-                            Colors.green, // Green background for Save button
+                        backgroundColor: Colors.green,
                       ),
                       onPressed: () {
                         setState(() {
-                          _quantity = newQuantity; // Update the quantity
-                          // Optionally, store the unit and date in a data structure if needed
-                          _savedItems[itemName] =
-                              newQuantity; // Save the updated quantity
+                          _quantity = newQuantity;
+
+                          _savedItems[itemName] = newQuantity;
                         });
-                        Navigator.of(context).pop(); // Close the dialog
+                        Navigator.of(context).pop();
                       },
-                      child: Text(
+                      child: const Text(
                         'Save',
-                        style: TextStyle(
-                            color: Colors.white), // White text on Save button
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),

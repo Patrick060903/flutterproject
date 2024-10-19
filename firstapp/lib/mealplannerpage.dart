@@ -4,7 +4,7 @@ import 'inventorypage.dart'; // Import the InventoryPage
 import 'grocerylistpage.dart'; // Import the GroceryListPage
 
 void main() {
-  runApp(MealPlannerApp());
+  runApp(const MealPlannerApp());
 }
 
 class MealPlannerApp extends StatelessWidget {
@@ -17,7 +17,7 @@ class MealPlannerApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: MealPlannerPage(),
+      home: const MealPlannerPage(),
     );
   }
 }
@@ -33,8 +33,8 @@ class _MealPlannerPageState extends State<MealPlannerPage> {
   int _selectedIndex = 1; // Meal Plan tab is selected by default
 
   static final List<Widget> _pages = <Widget>[
-    DashboardPage(), // Home Page content
-    MealPlanPage(), // Meal Planner Page content
+    const DashboardPage(), // Home Page content
+    const MealPlanPage(), // Meal Planner Page content
     InventoryPage(), // Inventory Page content
     GroceryListPage(), // Grocery List Page content
   ];
@@ -56,7 +56,7 @@ class _MealPlannerPageState extends State<MealPlannerPage> {
             // Navigate back to the DashboardPage
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => DashboardPage()),
+              MaterialPageRoute(builder: (context) => const DashboardPage()),
             );
           },
         ),

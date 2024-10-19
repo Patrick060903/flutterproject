@@ -125,7 +125,7 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SignupPage()),
+                                    builder: (context) => const SignupPage()),
                               );
                             },
                             style: ElevatedButton.styleFrom(
@@ -154,7 +154,7 @@ class _WalkthroughPageState extends State<WalkthroughPage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => LoginPage()),
+                                      builder: (context) => const LoginPage()),
                                 );
                               },
                               style: TextButton.styleFrom(

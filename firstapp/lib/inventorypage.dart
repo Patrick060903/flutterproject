@@ -5,12 +5,14 @@ import 'package:firstapp/mealplannerpage.dart';
 import 'package:intl/intl.dart';
 
 class InventoryPage extends StatefulWidget {
+  const InventoryPage({super.key});
+
   @override
   _InventoryPageState createState() => _InventoryPageState();
 }
 
 class _InventoryPageState extends State<InventoryPage> {
-  List<Map<String, String>> _inventoryItems = [];
+  final List<Map<String, String>> _inventoryItems = [];
 
   void _navigateToAddItemPage() async {
     final result = await Navigator.push(
@@ -20,7 +22,7 @@ class _InventoryPageState extends State<InventoryPage> {
 
     if (result != null) {
       setState(() {
-        _inventoryItems.add(result); // Add new item to the list
+        _inventoryItems.add(result);
       });
     }
   }
@@ -30,7 +32,7 @@ class _InventoryPageState extends State<InventoryPage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
@@ -45,16 +47,14 @@ class _InventoryPageState extends State<InventoryPage> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              // Handle search action
-            },
+            icon: const Icon(Icons.search),
+            onPressed: () {},
           ),
         ],
       ),
       body: Column(
         children: [
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -63,11 +63,57 @@ class _InventoryPageState extends State<InventoryPage> {
               _customSizedButton(context, 'Freezer', 40, () {}),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 15), // Adjust the height as needed
+          const Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: 16.0), // Adjust horizontal padding as needed
+            child: Row(
+              children: [
+                Icon(
+                  Icons.filter_list, // Filter icon
+                  size: 24, // Adjust icon size as needed
+                ),
+                SizedBox(width: 8), // Space between icon and text
+                Text(
+                  'Item Filters',
+                  style: TextStyle(
+                    fontSize: 15, // Adjust font size as needed
+                    fontWeight: FontWeight.bold, // Bold text
+                  ),
+                ),
+                Spacer(), // Pushes the sort section to the right
+                Row(
+                  children: [
+                    SizedBox(
+                        width: 8), // Space between text and first sort icon
+                    Icon(
+                      Icons.sort, // First sort icon
+                      size: 24, // Adjust icon size as needed
+                    ),
+                    Text(
+                      'Sort By:',
+                      style: TextStyle(
+                        fontSize: 15, // Adjust font size as needed
+                        fontWeight: FontWeight.bold, // Bold text
+                      ),
+                    ),
+
+                    SizedBox(
+                        width: 50), // Space between first and second sort icon
+                    Icon(
+                      Icons.grid_4x4, // Second sort icon
+                      size: 24, // Adjust icon size as needed
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 15),
           Container(
             color: Colors.black,
-            padding: EdgeInsets.symmetric(vertical: 10),
-            child: Row(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text('Item', style: TextStyle(color: Colors.white)),
@@ -77,10 +123,16 @@ class _InventoryPageState extends State<InventoryPage> {
               ],
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Expanded(
             child: _inventoryItems.isEmpty
-                ? Center(child: Text('No items to show'))
+                ? const Center(
+                    child: Text(
+                      'No items to show',
+                      style: TextStyle(
+                          color: Color(0xFF0B553E)), // Green color for the text
+                    ),
+                  )
                 : Container(
                     color: Colors.grey[300],
                     child: ListView.builder(
@@ -88,7 +140,7 @@ class _InventoryPageState extends State<InventoryPage> {
                       itemBuilder: (context, index) {
                         final item = _inventoryItems[index];
                         return Container(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               vertical: 10, horizontal: 15),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -123,14 +175,15 @@ class _InventoryPageState extends State<InventoryPage> {
               onTap: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => DashboardPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const DashboardPage()),
                 );
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/home.png', height: 24),
-                  Text('Home', style: TextStyle(fontSize: 12)),
+                  const Text('Home', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -145,7 +198,7 @@ class _InventoryPageState extends State<InventoryPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/inventory.png', height: 24),
-                  Text('Inventory', style: TextStyle(fontSize: 12)),
+                  const Text('Inventory', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -160,7 +213,7 @@ class _InventoryPageState extends State<InventoryPage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/grocery_list.png', height: 24),
-                  Text('Grocery List', style: TextStyle(fontSize: 12)),
+                  const Text('Grocery List', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -168,14 +221,15 @@ class _InventoryPageState extends State<InventoryPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MealPlannerPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const MealPlannerPage()),
                 );
               },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset('assets/meal_planner.png', height: 24),
-                  Text('Meal Planner', style: TextStyle(fontSize: 12)),
+                  const Text('Meal Planner', style: TextStyle(fontSize: 12)),
                 ],
               ),
             ),
@@ -184,9 +238,9 @@ class _InventoryPageState extends State<InventoryPage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _navigateToAddItemPage,
+        backgroundColor: const Color(0xFF0B553E),
+        shape: const CircleBorder(),
         child: Icon(Icons.add, size: 32),
-        backgroundColor: Color(0xFF0B553E),
-        shape: CircleBorder(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
@@ -201,8 +255,8 @@ class _InventoryPageState extends State<InventoryPage> {
         style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
           backgroundColor: Colors.black,
-          shape: StadiumBorder(),
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          shape: const StadiumBorder(),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         ),
         onPressed: onPressed,
         child: Text(
@@ -217,6 +271,8 @@ class _InventoryPageState extends State<InventoryPage> {
 }
 
 class AddItemPage extends StatefulWidget {
+  const AddItemPage({super.key});
+
   @override
   _AddItemPageState createState() => _AddItemPageState();
 }
@@ -234,8 +290,8 @@ class _AddItemPageState extends State<AddItemPage> {
     'Item 6'
   ];
   String _searchQuery = '';
-  TextEditingController _expDateController = TextEditingController();
-  Map<String, int> _savedItems = {}; // Tracks saved items and their quantities
+  final TextEditingController _expDateController = TextEditingController();
+  final Map<String, int> _savedItems = {};
   int _quantity = 1; // Default quantity
 
   @override
@@ -251,16 +307,16 @@ class _AddItemPageState extends State<AddItemPage> {
         title: Container(
           width: 260,
           alignment: Alignment.center,
-          child: Text(
+          child: const Text(
             'Add Items',
             style: TextStyle(
               color: Color(0xFF0B553E),
-              fontWeight: FontWeight.bold, // Make the text bold
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -272,30 +328,28 @@ class _AddItemPageState extends State<AddItemPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 1),
-              // Search and Manual buttons
+              const SizedBox(height: 1),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _oblongButton('Text Search', 150, 30, () {
+                  _oblongButton('Text Search', 180, 30, () {
                     setState(() {
                       _selectedOption = 'search';
                     });
                   }, _selectedOption == 'search'),
-                  SizedBox(width: 10),
-                  _oblongButton('Manual', 150, 30, () {
+                  const SizedBox(width: 10),
+                  _oblongButton('Manual', 180, 30, () {
                     setState(() {
                       _selectedOption = 'manual';
                     });
                   }, _selectedOption == 'manual'),
                 ],
               ),
-              SizedBox(height: 10),
-              // Build Content Based on Selection
+              const SizedBox(height: 10),
               _selectedOption == 'search'
                   ? _buildSearchContent()
                   : _buildManualContent(),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               _buildSaveButton(),
             ],
           ),
@@ -315,7 +369,7 @@ class _AddItemPageState extends State<AddItemPage> {
             borderRadius: BorderRadius.circular(height / 2),
           ),
           padding: EdgeInsets.zero,
-          backgroundColor: isSelected ? Color(0xFF0B553E) : Colors.white,
+          backgroundColor: isSelected ? const Color(0xFF0B553E) : Colors.white,
         ),
         onPressed: onPressed,
         child: Center(
@@ -323,7 +377,7 @@ class _AddItemPageState extends State<AddItemPage> {
             label,
             style: TextStyle(
               fontSize: 14,
-              color: isSelected ? Colors.white : Color(0xFF0B553E),
+              color: isSelected ? Colors.white : const Color(0xFF0B553E),
             ),
           ),
         ),
@@ -335,9 +389,9 @@ class _AddItemPageState extends State<AddItemPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          width: 390, // Set your desired width here
-          height: 45, // Set your desired height here
+        SizedBox(
+          width: 390,
+          height: 45,
           child: TextField(
             onChanged: (query) {
               setState(() {
@@ -349,16 +403,16 @@ class _AddItemPageState extends State<AddItemPage> {
                 borderRadius: BorderRadius.circular(30),
               ),
               hintText: 'Search for an item',
-              prefixIcon: Icon(Icons.search),
-              hintStyle: TextStyle(
+              prefixIcon: const Icon(Icons.search),
+              hintStyle: const TextStyle(
                 color: Colors.grey,
-                fontSize: 14, // Set your desired font size here
+                fontSize: 14,
               ),
             ),
-            style: TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black),
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         _buildRectangleBoxes(),
       ],
     );
@@ -369,64 +423,64 @@ class _AddItemPageState extends State<AddItemPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildTextFieldLabel1('Item Name'),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         _buildTextField('Enter item name'),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         _buildTextFieldLabel2('Storage'),
-        SizedBox(height: 1),
+        const SizedBox(height: 1),
         _buildStorageButtons(),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         _buildTextFieldLabel3(
             'Quantity                               Weight/Volume Unit'),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         _buildQuantityControl(),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         _buildTextFieldLabel4('Expiration Date'),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         _buildDateField(),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         _buildTextFieldLabel5('Category'),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
       ],
     );
   }
 
   Widget _buildTextFieldLabel1(String label) {
     return Container(
-      margin: EdgeInsets.only(top: 20),
+      margin: const EdgeInsets.only(top: 20),
       child: Text(
         label,
-        style: TextStyle(fontSize: 16),
+        style: const TextStyle(fontSize: 16),
       ),
     );
   }
 
   Widget _buildTextFieldLabel2(String label) {
     return Container(
-      margin: EdgeInsets.only(top: 20),
+      margin: const EdgeInsets.only(top: 20),
       child: Text(
         label,
-        style: TextStyle(fontSize: 16),
+        style: const TextStyle(fontSize: 16),
       ),
     );
   }
 
   Widget _buildTextFieldLabel3(String label) {
     return Container(
-      margin: EdgeInsets.only(top: 20),
+      margin: const EdgeInsets.only(top: 20),
       child: Text(
         label,
-        style: TextStyle(fontSize: 16),
+        style: const TextStyle(fontSize: 16),
       ),
     );
   }
 
   Widget _buildTextField1(String hint) {
-    return Container(
+    return SizedBox(
       height: 70.0,
       child: TextField(
         decoration: InputDecoration(
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
           hintText: hint,
         ),
       ),
@@ -434,11 +488,11 @@ class _AddItemPageState extends State<AddItemPage> {
   }
 
   Widget _buildTextField(String hint) {
-    return Container(
+    return SizedBox(
       height: 70.0,
       child: TextField(
         decoration: InputDecoration(
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
           hintText: hint,
         ),
       ),
@@ -447,10 +501,10 @@ class _AddItemPageState extends State<AddItemPage> {
 
   Widget _buildTextFieldLabel4(String label) {
     return Container(
-      margin: EdgeInsets.only(top: 20),
+      margin: const EdgeInsets.only(top: 20),
       child: Text(
         label,
-        style: TextStyle(fontSize: 16),
+        style: const TextStyle(fontSize: 16),
       ),
     );
   }
@@ -461,20 +515,20 @@ class _AddItemPageState extends State<AddItemPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: EdgeInsets.only(top: 20),
+          margin: const EdgeInsets.only(top: 20),
           child: Text(
             label,
-            style: TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16),
           ),
         ),
-        SizedBox(height: 8), // Space between label and dropdown
+        const SizedBox(height: 8),
         DropdownButtonFormField<String>(
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             border: OutlineInputBorder(),
             contentPadding: EdgeInsets.symmetric(horizontal: 10),
           ),
-          hint: Text('Select category'),
-          value: _selectedCategory, // The currently selected category
+          hint: const Text('Select category'),
+          value: _selectedCategory,
           items: <String>['vegetable', 'fruits', 'meat'].map((String value) {
             return DropdownMenuItem<String>(
               value: value,
@@ -483,7 +537,7 @@ class _AddItemPageState extends State<AddItemPage> {
           }).toList(),
           onChanged: (String? newValue) {
             setState(() {
-              _selectedCategory = newValue; // Update selected category
+              _selectedCategory = newValue;
             });
           },
         ),
@@ -508,12 +562,12 @@ class _AddItemPageState extends State<AddItemPage> {
       height: height,
       child: ElevatedButton(
         onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          backgroundColor: const Color(0xFF0B553E),
+        ),
         child: Text(
           label,
           style: TextStyle(color: Colors.white),
-        ),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xFF0B553E),
         ),
       ),
     );
@@ -521,19 +575,17 @@ class _AddItemPageState extends State<AddItemPage> {
 
   Widget _buildQuantityControl() {
     return Row(
-      mainAxisAlignment:
-          MainAxisAlignment.spaceBetween, // Align items with space between
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        // Minus button
         Container(
           width: 30,
           height: 30,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Color(0xFF008D23),
           ),
           child: IconButton(
-            icon: Icon(Icons.remove, color: Colors.white),
+            icon: const Icon(Icons.remove, color: Colors.white),
             padding: EdgeInsets.zero,
             onPressed: () {
               setState(() {
@@ -544,25 +596,24 @@ class _AddItemPageState extends State<AddItemPage> {
             },
           ),
         ),
-        // Quantity display
+
         Container(
-          padding: EdgeInsets.symmetric(
-              horizontal: 1), // Adjust distance between minus and quantity
+          padding: const EdgeInsets.symmetric(horizontal: 1),
           child: Text(
             '$_quantity',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
         // Add button
         Container(
           width: 30,
           height: 30,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: Color(0xFF008D23),
           ),
           child: IconButton(
-            icon: Icon(Icons.add, color: Colors.white),
+            icon: const Icon(Icons.add, color: Colors.white),
             padding: EdgeInsets.zero,
             onPressed: () {
               setState(() {
@@ -571,20 +622,19 @@ class _AddItemPageState extends State<AddItemPage> {
             },
           ),
         ),
-        // Weight/Volume Unit Dropdown
+
         Column(
-          crossAxisAlignment: CrossAxisAlignment.end, // Align items to the end
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            // Dropdown for unit selection
-            Container(
-              width: 200, // Set width of the dropdown
+            SizedBox(
+              width: 200,
               child: DropdownButtonFormField<String>(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(), // Add border to the dropdown
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
                   contentPadding: EdgeInsets.symmetric(horizontal: 10),
                 ),
-                hint: Text('Select unit'),
-                value: _selectedUnit, // The currently selected unit
+                hint: const Text('Select unit'),
+                value: _selectedUnit,
                 items: <String>['pieces', 'kg', 'grams'].map((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -593,7 +643,7 @@ class _AddItemPageState extends State<AddItemPage> {
                 }).toList(),
                 onChanged: (String? newValue) {
                   setState(() {
-                    _selectedUnit = newValue; // Update selected unit
+                    _selectedUnit = newValue;
                   });
                 },
               ),
@@ -605,15 +655,15 @@ class _AddItemPageState extends State<AddItemPage> {
   }
 
   Widget _buildDateField() {
-    return Container(
+    return SizedBox(
       height: 70.0,
       child: TextField(
         controller: _expDateController,
         decoration: InputDecoration(
-          border: OutlineInputBorder(),
+          border: const OutlineInputBorder(),
           hintText: 'Select expiration date',
           suffixIcon: IconButton(
-            icon: Icon(Icons.calendar_today),
+            icon: const Icon(Icons.calendar_today),
             onPressed: () => _selectDate(context),
           ),
         ),
@@ -631,9 +681,9 @@ class _AddItemPageState extends State<AddItemPage> {
 
     if (filteredItems.isEmpty) {
       return Container(
-        margin: EdgeInsets.only(top: 20),
+        margin: const EdgeInsets.only(top: 20),
         alignment: Alignment.center,
-        child: Text(
+        child: const Text(
           'No items found',
           style: TextStyle(fontSize: 16),
         ),
@@ -646,36 +696,31 @@ class _AddItemPageState extends State<AddItemPage> {
   }
 
   Widget _buildRectangleBox(String text) {
-    bool isSaved = _savedItems.containsKey(text); // Check if item is saved
+    bool isSaved = _savedItems.containsKey(text);
     return GestureDetector(
       onTap: () {
         setState(() {
           if (isSaved) {
-            // If already saved, remove it from saved items
             _savedItems.remove(text);
           } else {
-            // If not saved, show the edit quantity dialog
             _showEditQuantityDialog(text);
           }
         });
       },
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5),
+        margin: const EdgeInsets.symmetric(vertical: 5),
         height: 80,
         decoration: BoxDecoration(
-          color: isSaved
-              ? Colors.green[100]
-              : Colors.white, // Highlight saved item
-          border: Border.all(color: Color(0xFF0B553E)),
+          color: isSaved ? Colors.green[100] : Colors.white,
+          border: Border.all(color: const Color(0xFF0B553E)),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            _buildItemDetail(text), // Item Name
+            _buildItemDetail(text),
             _buildItemDetail('Storage'),
-            _buildItemDetail(
-                'Quantity: ${_savedItems[text] ?? 1}'), // Show saved quantity
+            _buildItemDetail('Quantity: ${_savedItems[text] ?? 1}'),
             _buildItemDetail('Expiry Date'),
           ],
         ),
@@ -686,7 +731,7 @@ class _AddItemPageState extends State<AddItemPage> {
   Widget _buildItemDetail(String text) {
     return Text(
       text,
-      style: TextStyle(fontSize: 14, color: Color(0xFF0B553E)),
+      style: const TextStyle(fontSize: 14, color: Color(0xFF0B553E)),
     );
   }
 
@@ -694,14 +739,13 @@ class _AddItemPageState extends State<AddItemPage> {
     return Center(
       child: ElevatedButton(
         onPressed: () {
-          // Save all items logic
           print("Saved items: $_savedItems");
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xFF0B553E),
-          padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+          backgroundColor: const Color(0xFF0B553E),
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         ),
-        child: Text(
+        child: const Text(
           'Add to inventory',
           style: TextStyle(fontSize: 16, color: Colors.white),
         ),
@@ -719,80 +763,118 @@ class _AddItemPageState extends State<AddItemPage> {
 
     if (pickedDate != null) {
       setState(() {
-        _expDateController.text =
-            DateFormat('yyyy-MM-dd').format(pickedDate); // Format the date
+        _expDateController.text = DateFormat('yyyy-MM-dd').format(pickedDate);
       });
     }
   }
 
   void _showEditQuantityDialog(String itemName) {
-    // Variables to hold the new quantity, unit, and date
-    int newQuantity = _quantity; // Initialize with the current quantity
-    String newUnit = ''; // Variable to hold the weight/volume unit
-    TextEditingController _dateAddedController =
-        TextEditingController(); // Controller for Date Added
+    int newQuantity = _quantity;
+    String newUnit = '';
+    String selectedUnit = 'kg'; // Default selected value
+
+    TextEditingController dateAddedController = TextEditingController();
 
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Center(child: Text('Edit Quantity')),
-          content: Container(
-            width: 400, // Set the desired width for the dialog
+          title: const Center(
+            child: Text(
+              'Edit Quantity',
+              style: TextStyle(fontWeight: FontWeight.bold), // Make text bold
+            ),
+          ),
+          content: SizedBox(
+            width: 400,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // Quantity and Weight/Volume unit section
                 Row(
                   children: [
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Number:',
+                          const Text('Number',
                               style: TextStyle(fontWeight: FontWeight.bold)),
-                          SizedBox(
-                              height: 8), // Space between label and textbox
+                          const SizedBox(height: 8),
                           Container(
-                            height: 60, // Set the height for the textbox
-                            child: TextField(
-                              keyboardType: TextInputType.number,
-                              onChanged: (value) {
-                                newQuantity = int.tryParse(value) ??
-                                    1; // Parse the quantity
-                              },
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: newQuantity.toString(),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 10), // Padding inside textbox
+                            width: 100, // Set your desired width here
+                            child: SizedBox(
+                              height: 50,
+                              child: TextField(
+                                keyboardType: TextInputType.number,
+                                onChanged: (value) {
+                                  newQuantity = int.tryParse(value) ?? 1;
+                                },
+                                decoration: InputDecoration(
+                                  border: const OutlineInputBorder(),
+                                  hintText: newQuantity.toString(),
+                                  contentPadding:
+                                      const EdgeInsets.symmetric(vertical: 10),
+                                ),
                               ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(width: 5), // Space between two columns
+                    const SizedBox(width: 4),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Weight/Volume unit:',
+                          const Text('Weight/Volume unit',
                               style: TextStyle(fontWeight: FontWeight.bold)),
+                          const SizedBox(height: 8),
                           SizedBox(
-                              height: 8), // Space between label and textbox
-                          Container(
-                            height: 60, // Set the height for the textbox
-                            child: TextField(
-                              onChanged: (value) {
-                                newUnit = value; // Capture the unit
-                              },
-                              decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: 'e.g., kg, L',
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 10), // Padding inside textbox
-                              ),
+                            height: 60,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: TextField(
+                                    onChanged: (value) {
+                                      newUnit = value;
+                                    },
+                                    decoration: InputDecoration(
+                                      border: const OutlineInputBorder(),
+                                      hintText: 'e.g., kg, L',
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              vertical: 10),
+                                      suffixIcon: DropdownButtonHideUnderline(
+                                        child: DropdownButton<String>(
+                                          value:
+                                              selectedUnit, // Store selected value in a variable
+                                          onChanged: (String? newValue) {
+                                            setState(() {
+                                              selectedUnit =
+                                                  newValue!; // Update the selected value
+                                            });
+                                          },
+                                          items: <String>[
+                                            'kg',
+                                            'L'
+                                          ] // Add more units as needed
+                                              .map<DropdownMenuItem<String>>(
+                                                  (String value) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Text(value),
+                                            );
+                                          }).toList(),
+                                          icon: const Icon(Icons
+                                              .arrow_drop_down), // Dropdown icon
+                                          // Ensure the dropdown appears below the text field
+                                          isExpanded:
+                                              true, // Ensures the dropdown expands to full width
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -800,20 +882,18 @@ class _AddItemPageState extends State<AddItemPage> {
                     ),
                   ],
                 ),
-                SizedBox(height: 20), // Space after the inputs
-                // Date Added section
+                const SizedBox(height: 30),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Date Added:',
+                    const Text('Date Added',
                         style: TextStyle(fontWeight: FontWeight.bold)),
-                    SizedBox(height: 8), // Space between label and textbox
-                    Container(
+                    const SizedBox(height: 8),
+                    SizedBox(
                       height: 60.0,
                       child: TextField(
-                        controller: _dateAddedController,
-                        readOnly:
-                            true, // Make it read-only to use a date picker
+                        controller: dateAddedController,
+                        readOnly: true,
                         onTap: () async {
                           DateTime? pickedDate = await showDatePicker(
                             context: context,
@@ -825,44 +905,38 @@ class _AddItemPageState extends State<AddItemPage> {
                             String formattedDate =
                                 DateFormat('yyyy-MM-dd').format(pickedDate);
                             setState(() {
-                              _dateAddedController.text =
-                                  formattedDate; // Set the selected date
+                              dateAddedController.text = formattedDate;
                             });
                           }
                         },
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          hintText: 'Select date',
-                          suffixIcon: Icon(Icons.calendar_today),
+                          hintText: 'Date',
+                          suffixIcon: Icon(Icons.arrow_drop_down),
                           contentPadding: EdgeInsets.symmetric(vertical: 10),
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 20), // Space before Save button
-                // Centralized Save button with adjustable width
+                const SizedBox(height: 20),
                 Center(
-                  child: Container(
-                    width: 150, // Set the width of the Save button
+                  child: SizedBox(
+                    width: 150,
                     child: TextButton(
                       style: TextButton.styleFrom(
-                        backgroundColor:
-                            Colors.green, // Green background for Save button
-                      ),
+                          backgroundColor: Color(0xFF0B553E)),
                       onPressed: () {
                         setState(() {
-                          _quantity = newQuantity; // Update the quantity
-                          // Optionally, store the unit and date in a data structure if needed
-                          _savedItems[itemName] =
-                              newQuantity; // Save the updated quantity
+                          _quantity = newQuantity;
+
+                          _savedItems[itemName] = newQuantity;
                         });
-                        Navigator.of(context).pop(); // Close the dialog
+                        Navigator.of(context).pop();
                       },
-                      child: Text(
+                      child: const Text(
                         'Save',
-                        style: TextStyle(
-                            color: Colors.white), // White text on Save button
+                        style: TextStyle(color: Colors.white),
                       ),
                     ),
                   ),

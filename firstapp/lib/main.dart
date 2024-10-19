@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'splashscreen.dart'; // Import the SplashScreen
+import 'dashboard.dart';
 import 'walkthrough.dart';
-import 'dashboard.dart'; // Import DashboardPage
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -12,7 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: WalkthroughPage(), // Set WalkthroughPage as the initial screen
+      title: 'OptiFood',
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: const SplashScreen(), // Set SplashScreen as the initial screen
     );
   }
 }

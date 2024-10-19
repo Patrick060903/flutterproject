@@ -79,7 +79,7 @@ class LoginPage extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => DashboardPage()),
+                                builder: (context) => const DashboardPage()),
                           );
                         },
                         style: ElevatedButton.styleFrom(
@@ -107,7 +107,7 @@ class LoginPage extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => SignupPage(),
+                              builder: (context) => const SignupPage(),
                             ),
                           );
                         },
@@ -135,7 +135,8 @@ class LoginPage extends StatelessWidget {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => SignupPage(),
+                                        builder: (context) =>
+                                            const SignupPage(),
                                       ),
                                     );
                                   },
